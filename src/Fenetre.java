@@ -156,7 +156,7 @@ public class Fenetre extends JFrame {
         if(model.isEstTor())
             nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " en TOR");
         else
-            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " en normal");
+            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " classique");
         bRetourGrille = new JButton("Retour");
     }
 
@@ -273,6 +273,6 @@ public class Fenetre extends JFrame {
         if(model.isEstTor())
             nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " en TOR");
         else
-            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " en normal");
+            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " classique");
     }
 }
