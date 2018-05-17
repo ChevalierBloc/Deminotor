@@ -8,8 +8,8 @@ public class ControlGroup {
     public ControlGroup(Model model){
         this.model = model ;
         vue = new Fenetre(model);
-        cb = new ControlButton(model,vue);
-        cm = new ControlMenu(model,vue);
+        //cb = new ControlButton(model,vue);
+        //cm = new ControlMenu(model,vue);
     }
 
 }
