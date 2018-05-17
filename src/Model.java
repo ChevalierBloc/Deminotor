@@ -7,7 +7,8 @@ public class Model {
     1 = mines
     2 = Mines explosé
      */
-
+    private int diffeculte;
+    private boolean estTor;
     private int nbcaseligne;
     private int nbcasecolonne;
     private int[][] tabMines;
