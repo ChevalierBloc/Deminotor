@@ -85,7 +85,7 @@ public class Model {
     protected void placeVoisins(){
 
     }
-    protected int verifGagne {
+    protected int verifGagne() {
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
                 //Verifie si la case n'a pas kaboom
