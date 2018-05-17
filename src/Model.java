@@ -7,7 +7,7 @@ public class Model {
     1 = mines
     2 = Mines explosé
      */
-    private int diffeculte;
+    private int difficulte;
     private boolean estTor;
     private int nbcaseligne;
     private int nbcasecolonne;
@@ -24,7 +24,7 @@ public class Model {
         this.nbcaseligne=nb;
     }
 
-    public void setNbMines(int nbMines) {
+    protected void setNbMines(int nbMines) {
         this.nbMines = nbMines;
     }
 
@@ -37,23 +37,29 @@ public class Model {
         tabJeu = new int[nbcaseligne][nbcasecolonne];
     }
 
-    public int getNbcaseligne() {
+    protected int getNbcaseligne() {
         return nbcaseligne;
     }
 
-    public int getNbcasecolonne() {
+    protected int getNbcasecolonne() {
         return nbcasecolonne;
     }
 
-    public int[][] getTabGrille() {
+    protected int[][] getTabGrille() {
         return tabMines;
     }
 
-    public int getNbMines() {
+    protected int getNbMines() {
         return nbMines;
     }
+    protected void setDifficulte(int difficulte){
+        this.difficulte = difficulte;
+    }
+    public int getDifficulte() {
+        return difficulte;
+    }
 
-    public void placeMine(){
+    protected void placeMine(){
         while(nbMines != 0){
             for (int i = 0; i <nbcaseligne; i++) {
                 for (int j=0; i<nbcasecolonne ; j++){
@@ -67,16 +73,16 @@ public class Model {
             }
         }
     }
-    public void placeVoisins(){
+    protected void placeVoisins(){
 
     }
-    public void estGagnant(){
+    protected void estGagnant(){
 
     }
-    public void estPerdu(){
+    protected void estPerdu(){
 
     }
-    public void decouvreCases(){
+    protected void decouvreCases(){
 
     }
 
