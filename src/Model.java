@@ -58,6 +58,14 @@ public class Model {
     public int getDifficulte() {
         return difficulte;
     }
+    public void setEstTor(boolean estTor) {
+        this.estTor = estTor;
+    }
+    public boolean isEstTor() {
+        return estTor;
+    }
+
+
 
     protected void placeMine(){
         while(nbMines != 0){
