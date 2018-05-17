@@ -94,6 +94,10 @@ public class Fenetre extends JFrame {
         setContentPane(panGeneral);
     }
 
+    public void ajouterWidgetDifficulte(){
+
+    }
+
 
     public JButton getbJeu() {
         return bJeu;
@@ -166,5 +170,4 @@ public class Fenetre extends JFrame {
     public JButton getbRetourDifficulte() {
         return bRetourDifficulte;
     }
-
 }
