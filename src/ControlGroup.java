@@ -1,11 +1,11 @@
 public class ControlGroup {
 
-    private ModelIntermediaire model ;
+    private Model model ;
     private Fenetre vue ;
     public ControlButton cb ;
     public ControlMenu cm ;
 
-    public ControlGroup(ModelIntermediaire model){
+    public ControlGroup(Model model){
         this.model = model ;
         vue = new Fenetre(model);
         cb = new ControlButton(model,vue);

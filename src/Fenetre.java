@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 public class Fenetre extends JFrame {
-    private ModelIntermediaire model;
+    private Model model;
 
     JPanel panGeneral;
 
@@ -37,7 +37,7 @@ public class Fenetre extends JFrame {
     private JLabel nomDemineurGrille;
     private JButton bRetourGrille;
 
-    public Fenetre(ModelIntermediaire model) {
+    public Fenetre(Model model) {
         this.model = model;
         initAttribut();
         ajouterWidgetVuePrincipal();
@@ -153,10 +153,10 @@ public class Fenetre extends JFrame {
         bDiffile = new JButton("Difficile");
         bRetourDifficulte = new JButton("Retour");
 
-        if(model.estTor)
-            nomDemineurGrille = new JLabel("Grille de difficulte " + model.diffeculte + " en TOR");
+        if(model.isEstTor())
+            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " en TOR");
         else
-            nomDemineurGrille = new JLabel("Grille de difficulte " + model.diffeculte + " en normal");
+            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " classique");
         bRetourGrille = new JButton("Retour");
     }
 
@@ -270,9 +270,9 @@ public class Fenetre extends JFrame {
     }
 
     public void actualiser(){
-        if(model.estTor)
-            nomDemineurGrille.setText("Grille de difficulte " + model.diffeculte + " en TOR");
+        if(model.isEstTor())
+            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " en TOR");
         else
-            nomDemineurGrille.setText("Grille de difficulte " + model.diffeculte + " en normal");
+            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " classique");
     }
 }

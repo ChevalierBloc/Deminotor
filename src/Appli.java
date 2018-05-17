@@ -1,7 +1,7 @@
 
 public class Appli {
     public static void main(String[] args) {
-        ModelIntermediaire model = new ModelIntermediaire();
+        Model model = new Model();
         ControlGroup cg = new ControlGroup(model);
     }
 
