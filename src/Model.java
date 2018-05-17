@@ -68,7 +68,14 @@ public class Model {
         return estTor;
     }
 
-
+    public int getIndice(String indice) {
+        int n = 0;
+        for (int i=0; i < indice.length();i++){
+            char digit = indice.charAt(i);
+            n = n*10+digit-'0';
+        }
+        return n;
+    }
 
     protected void placeMine(){
         while(nbMines != 0){
