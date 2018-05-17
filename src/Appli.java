@@ -1,6 +1,19 @@
+import java.io.IOException;
+
 public class Appli {
     public static void main(String[] args) {
-        Model model = new Model();
-        Fenetre fenetre = new Fenetre(model);
+
+        javax.swing.SwingUtilities.invokeLater( new Runnable() {
+            public void run() {
+                Model model = null;
+                try {
+                    model = new Model();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ControlGroup control = new ControlGroup(model);
+            }
+        });
     }
+
 }
