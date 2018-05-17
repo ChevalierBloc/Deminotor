@@ -1,7 +1,6 @@
 import javax.swing.*;
 
 public class Model {
-
     /*
     NULL = cases vides ;
     1 = mines
