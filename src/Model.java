@@ -44,16 +44,18 @@ public class Model {
         return nbcasecolonne;
     }
 
-    protected int[][] getTabGrille() {
+    protected int[][] getTabMines() {
         return tabMines;
     }
 
     protected int getNbMines() {
         return nbMines;
     }
+
     protected void setDifficulte(int difficulte){
         this.difficulte = difficulte;
     }
+
     public int getDifficulte() {
         return difficulte;
     }
@@ -82,6 +84,23 @@ public class Model {
     }
     protected void placeVoisins(){
 
+    }
+    protected int verifGagne {
+        for (int i = 0 ; i<nbcaseligne;i++){
+            for (int j = 0 ; j<nbcasecolonne;j++){
+                //Verifie si la case n'a pas kaboom
+                if (tabJeu[i][j] == 10){
+                    estPerdu();
+                    return 2;
+                }
+                //Verifie si la cases n'est pas découvert
+                if (tabJeu[i][j] == 0){
+                    return 0;
+                }
+            }
+        }
+        estGagnant() ;
+        return 1 ;
     }
     protected void estGagnant(){
 
