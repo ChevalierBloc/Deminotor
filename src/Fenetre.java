@@ -166,4 +166,6 @@ public class Fenetre extends JFrame {
     public JButton getbRetourDifficulte() {
         return bRetourDifficulte;
     }
+
+    public
 }
