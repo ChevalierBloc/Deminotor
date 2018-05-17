@@ -6,9 +6,9 @@ public class ControlButton implements ActionListener {
 
     Fenetre f;
 
-    ModelIntermediaire model;
+    Model model;
 
-    public ControlButton(ModelIntermediaire model, Fenetre f) {
+    public ControlButton(Model model, Fenetre f) {
         this.f = f;
         this.model = model;
         f.setControlBouton(this);
@@ -34,12 +34,12 @@ public class ControlButton implements ActionListener {
         }
 
         else if(source == f.getbNorma()){
-            model.estTor = false;
+            model.setEstTor(false);
             f.changerVue(4);
         }
 
         else if(source == f.getbTor()){
-            model.estTor = true;
+            model.setEstTor(true);
             f.changerVue(4);
         }
 
@@ -48,30 +48,30 @@ public class ControlButton implements ActionListener {
         }
 
         else if(source == f.getbFacile()){
-            model.diffeculte = 1;
+            model.setDifficulte(1);
             f.actualiser();
             f.changerVue(5);
         }
 
         else if(source == f.getbMoyen()){
-            model.diffeculte = 2;
+            model.setDifficulte(2);
             f.actualiser();
             f.changerVue(5);
         }
 
         else if(source == f.getbDiffile()){
-            model.diffeculte = 3;
+            model.setDifficulte(3);
             f.actualiser();
             f.changerVue(5);
         }
 
         else if(source == f.getbRetourDifficulte()){
-            model.estTor = false;
+            model.setEstTor(false);
             f.changerVue(2);
         }
 
         else if(source == f.getbRetourGrille()){
-            model.diffeculte = 0;
+            model.setDifficulte(0);
             f.changerVue(4);
         }
 
