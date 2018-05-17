@@ -85,29 +85,27 @@ public class Model {
     protected void placeVoisins(){
 
     }
-    protected int verifGagne() {
+    protected boolean estGagnant() {
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
-                //Verifie si la case n'a pas kaboom
-                if (tabJeu[i][j] == 10){
-                    estPerdu();
-                    return 2;
-                }
                 //Verifie si la cases n'est pas découvert
                 if (tabJeu[i][j] == 0){
-                    return 0;
+                    return false;
                 }
             }
         }
-        estGagnant() ;
-        return 1 ;
+        return true ;
     }
-    protected void estGagnant(){
 
-    }
-    protected void estPerdu(){
+//    protected boolean estPerdu(){
+//        for (int i = 0 ; i<nbcaseligne;i++){
+//            for (int j = 0 ; j<nbcasecolonne;j++){
+//        if (tabJeu[i][j] == 10){
+//            return false;
+//        }
+//
+//    }
 
-    }
     protected void decouvreCases(){
 
     }
