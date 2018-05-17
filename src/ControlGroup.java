@@ -11,6 +11,7 @@ public class ControlGroup {
         cb = new ControlButton(model,vue);
         cm = new ControlMenu(model,vue);
     }
+
 }
 
 }
