@@ -41,6 +41,7 @@ public class Fenetre extends JFrame {
         this.model = model;
         initAttribut();
         ajouterWidgetVuePrincipal();
+        this.setIconImage(model.getImagesMines().getImage());
         setSize(500,700);
         setTitle("Démineur");
         setLocationRelativeTo(null);
@@ -129,8 +130,8 @@ public class Fenetre extends JFrame {
     public void initAttribut(){
         panGeneral = new JPanel();
 
-        imageDemineur = new JLabel(new ImageIcon(new ImageIcon("images/demineur.jpg").getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
-        nomDemineur = new JLabel("Démineur :)");
+        imageDemineur = new JLabel(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
+        nomDemineur = new JLabel("Déminotor");
         bJeu = new JButton("Jouer");
         bOption = new JButton("Option");
         bQuitter = new JButton("Quitter");
@@ -162,12 +163,16 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVuePrincipal(){
         JPanel panDemineur = new JPanel();
-        panDemineur.setLayout(new BoxLayout(panDemineur, BoxLayout.X_AXIS));
-        //panDemineur.add(imageDemineur);
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
         panDemineur.add(nomDemineur);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        gl = new GridLayout(4,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
         panel.add(panDemineur);
         panel.add(bJeu);
         panel.add(bOption);
@@ -179,9 +184,18 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueJouer(){
+        JPanel panDemineur = new JPanel();
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
+        panDemineur.add(nomDemineurJouer);
+
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(nomDemineurJouer);
+        gl = new GridLayout(5,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
+        panel.add(panDemineur);
         panel.add(bNorma);
         panel.add(bTor);
         panel.add(bPerso);
@@ -193,9 +207,18 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueOption(){
+        JPanel panDemineur = new JPanel();
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
+        panDemineur.add(nomDemineurOption);
+
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        panel.add(nomDemineurOption);
+        gl = new GridLayout(2,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
+        panel.add(panDemineur);
         panel.add(bRetourOption);
 
         panGeneral.add(panel);
@@ -204,9 +227,18 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueDifficulte(){
+        JPanel panDemineur = new JPanel();
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
+        panDemineur.add(nomDemineurDifficulte);
+
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(nomDemineurDifficulte);
+        gl = new GridLayout(5,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
+        panel.add(panDemineur);
         panel.add(bFacile);
         panel.add(bMoyen);
         panel.add(bDiffile);
@@ -218,9 +250,18 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueGrille(){
+        JPanel panDemineur = new JPanel();
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
+        panDemineur.add(nomDemineurGrille);
+
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(nomDemineurGrille);
+        gl = new GridLayout(2,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
+        panel.add(panDemineur);
         panel.add(bRetourGrille);
 
         panGeneral.add(panel);
@@ -230,9 +271,18 @@ public class Fenetre extends JFrame {
 
 
     public void ajouterWidgetVuePerso(){
+        JPanel panDemineur = new JPanel();
+        GridLayout gl = new GridLayout(1,2);
+        gl.setHgap(5);
+        panDemineur.setLayout(gl);
+        panDemineur.add(imageDemineur);
+        panDemineur.add(nomDemineurPerso);
+
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        panel.add(nomDemineurPerso);
+        gl = new GridLayout(2,1);
+        gl.setVgap(20);
+        panel.setLayout(gl);
+        panel.add(panDemineur);
         panel.add(bRetourPerso);
 
         panGeneral.add(panel);
@@ -273,6 +323,6 @@ public class Fenetre extends JFrame {
         if(model.isEstTor())
             nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " en TOR");
         else
-            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " classique");
+            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + "  en classique");
     }
 }

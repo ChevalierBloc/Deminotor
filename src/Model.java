@@ -21,6 +21,11 @@ public class Model {
     public Model() {
         imagesMines = new ImageIcon("images/minotaur.png") ;
     }
+
+    public ImageIcon getImagesMines() {
+        return imagesMines;
+    }
+
     protected void setNbmineligne(int nb){
         this.nbcaseligne=nb;
     }
