@@ -15,6 +15,8 @@ public class Model {
     private int[][] tabJeu ;
     private int nbMines ;
     private ImageIcon imagesMines ;
+    private int x;
+    private int y;
 
     public Model() {
         imagesMines = new ImageIcon("images/minotaur.png") ;
@@ -85,6 +87,23 @@ public class Model {
     protected void placeVoisins(){
 
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     protected boolean estGagnant() {
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
