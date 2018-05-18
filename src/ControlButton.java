@@ -49,19 +49,16 @@ public class ControlButton implements ActionListener {
 
         else if(source == f.getbFacile()){
             model.setDifficulte(1);
-            f.actualiser();
             f.changerVue(5);
         }
 
         else if(source == f.getbMoyen()){
             model.setDifficulte(2);
-            f.actualiser();
             f.changerVue(5);
         }
 
         else if(source == f.getbDiffile()){
             model.setDifficulte(3);
-            f.actualiser();
             f.changerVue(5);
         }
 

@@ -37,6 +37,8 @@ public class Fenetre extends JFrame {
     private JLabel nomDemineurGrille;
     private JButton bRetourGrille;
 
+    private JButton[][] tabButton;
+
     public Fenetre(Model model) {
         this.model = model;
         initAttribut();
@@ -154,10 +156,6 @@ public class Fenetre extends JFrame {
         bDiffile = new JButton("Difficile");
         bRetourDifficulte = new JButton("Retour");
 
-        if(model.isEstTor())
-            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " en TOR");
-        else
-            nomDemineurGrille = new JLabel("Grille de difficulte " + model.getDifficulte() + " classique");
         bRetourGrille = new JButton("Retour");
     }
 
@@ -250,6 +248,27 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueGrille(){
+        switch(model.getDifficulte()){
+            case 1:
+                tabButton = new JButton[9][9];
+                for(int i=0; i<tabButton.length; i++){
+
+                }
+                break;
+            case 2:
+                tabButton = new JButton[16][16];
+                for(int i=0; i<tabButton.length; i++){
+
+                }
+                break;
+            case 3:
+                tabButton = new JButton[16][32];
+                for(int i=0; i<tabButton.length; i++){
+
+                }
+                break;
+        }
+
         JPanel panDemineur = new JPanel();
         GridLayout gl = new GridLayout(1,2);
         gl.setHgap(5);
@@ -317,12 +336,5 @@ public class Fenetre extends JFrame {
                 ajouterWidgetVuePerso();
                 break;
         }
-    }
-
-    public void actualiser(){
-        if(model.isEstTor())
-            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + " en TOR");
-        else
-            nomDemineurGrille.setText("Grille de difficulte " + model.getDifficulte() + "  en classique");
     }
 }
