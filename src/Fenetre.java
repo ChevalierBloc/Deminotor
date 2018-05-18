@@ -31,10 +31,11 @@ public class Fenetre extends JFrame {
     private JButton bMoyen;
     private JButton bDiffile;
 
-    private JLabel nomDemineurDifficulte;
+    private JLabel  nomDemineurDifficulte;
     private JButton bRetourDifficulte;
 
-    private JLabel nomDemineurGrille;
+    private JLabel  lScore;
+    private JLabel  lMine;
     private JButton bRetourGrille;
 
     private JButton[][] tabButton;
@@ -44,8 +45,8 @@ public class Fenetre extends JFrame {
         initAttribut();
         ajouterWidgetVuePrincipal();
         this.setIconImage(model.getImagesMines().getImage());
-        setSize(500,700);
-        setTitle("Démineur");
+        setSize(700,500);
+        setTitle("Déminotor");
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Gestion de la fermeture
@@ -54,58 +55,62 @@ public class Fenetre extends JFrame {
     public JButton getbJeu() {
         return bJeu;
     }
-
     public JButton getbOption() {
         return bOption;
     }
-
     public JButton getbQuitter() {
         return bQuitter;
     }
 
+
     public JButton getbNorma() {
         return bNorma;
     }
-
     public JButton getbTor() {
         return bTor;
     }
-
     public JButton getbPerso() {
         return bPerso;
     }
-
     public JButton getbRetourJouer() {
         return bRetourJouer;
     }
+
 
     public JButton getbRetourOption() {
         return bRetourOption;
     }
 
+
     public JButton getbRetourPerso() {
         return bRetourPerso;
     }
 
+
     public JButton getbFacile() {
         return bFacile;
     }
-
     public JButton getbMoyen() {
         return bMoyen;
     }
-
     public JButton getbDiffile() {
         return bDiffile;
     }
-
     public JButton getbRetourDifficulte() {
         return bRetourDifficulte;
     }
 
+
+    public JLabel getlScore() {
+        return lScore;
+    }
+    public JLabel getlMine() {
+        return lMine;
+    }
     public JButton getbRetourGrille() {
         return bRetourGrille;
     }
+
 
     public void setControlBouton(ActionListener actionListener){
         bJeu.addActionListener(actionListener);
@@ -138,7 +143,7 @@ public class Fenetre extends JFrame {
         bOption = new JButton("Option");
         bQuitter = new JButton("Quitter");
 
-        nomDemineurJouer = new JLabel("Jouer ");
+        nomDemineurJouer = new JLabel("Jouer");
         bNorma = new JButton("Jeu Normal");
         bTor = new JButton("Jeu TOR");
         bPerso = new JButton("Jeu Personnaliser");
@@ -150,19 +155,21 @@ public class Fenetre extends JFrame {
         nomDemineurPerso = new JLabel("Personnaliser");
         bRetourPerso = new JButton("Retour");
 
-        nomDemineurDifficulte = new JLabel("Choississez la Difficulté");
+        nomDemineurDifficulte = new JLabel("Difficulté");
         bFacile = new JButton("Facile");
         bMoyen = new JButton("Moyen");
         bDiffile = new JButton("Difficile");
         bRetourDifficulte = new JButton("Retour");
 
+        lScore = new JLabel("Score :"+model.getScore());
+        lMine = new JLabel("Mines Restantes :"+model.getNbMines());
         bRetourGrille = new JButton("Retour");
     }
 
     public void ajouterWidgetVuePrincipal(){
         JPanel panDemineur = new JPanel();
         GridLayout gl = new GridLayout(1,2);
-        gl.setHgap(5);
+        gl.setHgap(25);
         panDemineur.setLayout(gl);
         panDemineur.add(imageDemineur);
         panDemineur.add(nomDemineur);
@@ -227,7 +234,7 @@ public class Fenetre extends JFrame {
     public void ajouterWidgetVueDifficulte(){
         JPanel panDemineur = new JPanel();
         GridLayout gl = new GridLayout(1,2);
-        gl.setHgap(5);
+        gl.setHgap(25);
         panDemineur.setLayout(gl);
         panDemineur.add(imageDemineur);
         panDemineur.add(nomDemineurDifficulte);
@@ -248,39 +255,56 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueGrille(){
+        JPanel panGrille = new JPanel();
+        GridLayout g = new GridLayout(model.getNbcaseligne(),model.getNbcasecolonne(),1,1);
         switch(model.getDifficulte()){
             case 1:
-                tabButton = new JButton[9][9];
+                panGrille.setLayout(g);
+                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
                 for(int i=0; i<tabButton.length; i++){
-
+                    for( int j=0; j<tabButton[i].length; j++){
+                        tabButton[i][j] = new JButton();
+                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
+                        tabButton[i][j].setActionCommand(""+i+j);
+                        panGrille.add(new JPanel().add(tabButton[i][j]));
+                    }
                 }
                 break;
             case 2:
-                tabButton = new JButton[16][16];
+                panGrille.setLayout(g);
+                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
                 for(int i=0; i<tabButton.length; i++){
-
+                    for( int j=0; j<tabButton[i].length; j++){
+                        tabButton[i][j] = new JButton();
+                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
+                        tabButton[i][j].setActionCommand(""+i+j);
+                        panGrille.add(new JPanel().add(tabButton[i][j]));
+                    }
                 }
                 break;
             case 3:
-                tabButton = new JButton[16][32];
+                panGrille.setLayout(g);
+                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
                 for(int i=0; i<tabButton.length; i++){
-
+                    for( int j=0; j<tabButton[i].length; j++){
+                        tabButton[i][j] = new JButton();
+                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
+                        tabButton[i][j].setActionCommand(""+i+j);
+                        panGrille.add(new JPanel().add(tabButton[i][j]));
+                    }
                 }
                 break;
         }
 
         JPanel panDemineur = new JPanel();
-        GridLayout gl = new GridLayout(1,2);
-        gl.setHgap(5);
-        panDemineur.setLayout(gl);
+        panDemineur.add(lScore);
         panDemineur.add(imageDemineur);
-        panDemineur.add(nomDemineurGrille);
+        panDemineur.add(lMine);
 
         JPanel panel = new JPanel();
-        gl = new GridLayout(2,1);
-        gl.setVgap(20);
-        panel.setLayout(gl);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(panDemineur);
+        panel.add(panGrille);
         panel.add(bRetourGrille);
 
         panGeneral.add(panel);
@@ -336,5 +360,10 @@ public class Fenetre extends JFrame {
                 ajouterWidgetVuePerso();
                 break;
         }
+    }
+
+    public void actualiser(){
+        lScore.setText("Score :"+model.getScore());
+        lMine.setText("Mines Restantes :"+model.getNbMines());
     }
 }

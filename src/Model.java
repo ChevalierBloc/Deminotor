@@ -6,6 +6,7 @@ public class Model {
     1 = mines
     2 = Mines explosé
      */
+    private int score;
     private int difficulte;
     private boolean estTor;
     private int nbcaseligne;
@@ -71,6 +72,12 @@ public class Model {
     }
     public boolean isEstTor() {
         return estTor;
+    }
+    public int getScore() {
+        return score;
+    }
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getIndice(String indice) {
