@@ -15,6 +15,7 @@ public class Model {
     private int[][] tabVoisins ;
     private int[][] tabJeu ;
     private int nbMines ;
+    private int nbMinesRestant;
     private ImageIcon imagesMines ;
     private int x;
     private int y;
@@ -58,6 +59,14 @@ public class Model {
 
     protected int getNbMines() {
         return nbMines;
+    }
+
+    public int getNbMinesRestant() {
+        return nbMinesRestant;
+    }
+
+    public void setNbMinesRestant(int nbMinesRestant) {
+        this.nbMinesRestant = nbMinesRestant;
     }
 
     protected void setDifficulte(int difficulte){
