@@ -25,6 +25,13 @@ public class Fenetre extends JFrame {
     private JButton bRetourOption;
 
     private JLabel nomDemineurPerso;
+    private JLabel lNbLigne;
+    private JTextField bNbLigne;
+    private JLabel lNbColonne;
+    private JTextField bNbColonne;
+    private JLabel lNbMine;
+    private JTextField bNbMine;
+    private JButton bValider;
     private JButton bRetourPerso;
 
     private JButton bFacile;
@@ -81,7 +88,18 @@ public class Fenetre extends JFrame {
         return bRetourOption;
     }
 
-
+    public JTextField getbNbLigne() {
+        return bNbLigne;
+    }
+    public JTextField getbNbColonne() {
+        return bNbColonne;
+    }
+    public JTextField getbNbMine() {
+        return bNbMine;
+    }
+    public JButton getbValider() {
+        return bValider;
+    }
     public JButton getbRetourPerso() {
         return bRetourPerso;
     }
@@ -124,6 +142,7 @@ public class Fenetre extends JFrame {
 
         bRetourOption.addActionListener(actionListener);
 
+        bValider.addActionListener(actionListener);
         bRetourPerso.addActionListener(actionListener);
 
         bFacile.addActionListener(actionListener);
@@ -153,6 +172,13 @@ public class Fenetre extends JFrame {
         bRetourOption = new JButton("Retour");
 
         nomDemineurPerso = new JLabel("Personnaliser");
+        lNbLigne = new JLabel("Nombre de ligne :");
+        bNbLigne = new JTextField();
+        lNbColonne = new JLabel("Nombre de colonne :");;
+        bNbColonne = new JTextField();
+        lNbMine = new JLabel("Nombre de mine :");;
+        bNbMine = new JTextField();
+        bValider = new JButton("Valider");
         bRetourPerso = new JButton("Retour");
 
         nomDemineurDifficulte = new JLabel("Difficulté");
@@ -257,43 +283,15 @@ public class Fenetre extends JFrame {
     public void ajouterWidgetVueGrille(){
         JPanel panGrille = new JPanel();
         GridLayout g = new GridLayout(model.getNbcaseligne(),model.getNbcasecolonne(),1,1);
-        switch(model.getDifficulte()){
-            case 1:
-                panGrille.setLayout(g);
-                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
-                for(int i=0; i<tabButton.length; i++){
-                    for( int j=0; j<tabButton[i].length; j++){
-                        tabButton[i][j] = new JButton();
-                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
-                        tabButton[i][j].setActionCommand(""+i+j);
-                        panGrille.add(new JPanel().add(tabButton[i][j]));
-                    }
-                }
-                break;
-            case 2:
-                panGrille.setLayout(g);
-                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
-                for(int i=0; i<tabButton.length; i++){
-                    for( int j=0; j<tabButton[i].length; j++){
-                        tabButton[i][j] = new JButton();
-                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
-                        tabButton[i][j].setActionCommand(""+i+j);
-                        panGrille.add(new JPanel().add(tabButton[i][j]));
-                    }
-                }
-                break;
-            case 3:
-                panGrille.setLayout(g);
-                tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
-                for(int i=0; i<tabButton.length; i++){
-                    for( int j=0; j<tabButton[i].length; j++){
-                        tabButton[i][j] = new JButton();
-                        tabButton[i][j].setPreferredSize(new Dimension(20,20));
-                        tabButton[i][j].setActionCommand(""+i+j);
-                        panGrille.add(new JPanel().add(tabButton[i][j]));
-                    }
-                }
-                break;
+        panGrille.setLayout(g);
+        tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
+        for(int i=0; i<tabButton.length; i++){
+            for( int j=0; j<tabButton[i].length; j++){
+                tabButton[i][j] = new JButton();
+                tabButton[i][j].setPreferredSize(new Dimension(20,20));
+                tabButton[i][j].setActionCommand(""+i+j);
+                panGrille.add(new JPanel().add(tabButton[i][j]));
+            }
         }
 
         JPanel panDemineur = new JPanel();
@@ -321,11 +319,30 @@ public class Fenetre extends JFrame {
         panDemineur.add(imageDemineur);
         panDemineur.add(nomDemineurPerso);
 
+        JPanel panNbLigne = new JPanel();
+        panNbLigne.setLayout(gl);
+        panDemineur.add(lNbLigne);
+        panDemineur.add(bNbLigne);
+
+        JPanel panNbColonne = new JPanel();
+        panNbColonne.setLayout(gl);
+        panDemineur.add(lNbColonne);
+        panDemineur.add(bNbColonne);
+
+        JPanel panNbMine = new JPanel();
+        panNbMine.setLayout(gl);
+        panDemineur.add(lNbMine);
+        panDemineur.add(bNbMine);
+
         JPanel panel = new JPanel();
-        gl = new GridLayout(2,1);
+        gl = new GridLayout(6,1);
         gl.setVgap(20);
         panel.setLayout(gl);
         panel.add(panDemineur);
+        panel.add(panNbLigne);
+        panel.add(panNbColonne);
+        panel.add(panNbMine);
+        panel.add(bValider);
         panel.add(bRetourPerso);
 
         panGeneral.add(panel);

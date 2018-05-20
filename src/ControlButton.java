@@ -47,6 +47,13 @@ public class ControlButton implements ActionListener {
             f.changerVue(6);
         }
 
+        else if(source == f.getbValider()){
+            model.setNbcaseligne(Integer.parseInt(f.getbNbLigne().getText()));
+            model.setNbcasecolonne(Integer.parseInt(f.getbNbColonne().getText()));
+            model.setNbMines(Integer.parseInt(f.getbNbMine().getText()));
+            f.changerVue(5);
+        }
+
         else if(source == f.getbFacile()){
             model.setDifficulte(1);
             model.setNbminecolonne(9);

@@ -53,6 +53,14 @@ public class Model {
         return nbcasecolonne;
     }
 
+    public void setNbcaseligne(int nbcaseligne) {
+        this.nbcaseligne = nbcaseligne;
+    }
+
+    public void setNbcasecolonne(int nbcasecolonne) {
+        this.nbcasecolonne = nbcasecolonne;
+    }
+
     protected int[][] getTabMines() {
         return tabMines;
     }
