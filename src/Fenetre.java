@@ -383,4 +383,19 @@ public class Fenetre extends JFrame {
         lScore.setText("Score :"+model.getScore());
         lMine.setText("Mines Restantes :"+model.getNbMines());
     }
+
+    public void genererErreur(String erreur){
+        JOptionPane optionPane = new JOptionPane();
+        switch(erreur){
+            case "ligne":
+                optionPane.showMessageDialog(null, "saississez un nombre entre 2 et 16", "Nombre de ligne", JOptionPane.ERROR_MESSAGE);
+                break;
+            case "colonne":
+                optionPane.showMessageDialog(null, "saississez un nombre entre 2 et 30", "Nombre de colonne", JOptionPane.ERROR_MESSAGE);
+                break;
+            case "nbMines":
+                optionPane.showMessageDialog(null, "saississez un nombre", "Nombre de mine", JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+    }
 }

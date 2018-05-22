@@ -48,10 +48,32 @@ public class ControlButton implements ActionListener {
         }
 
         else if(source == f.getbValider()){
-            model.setNbcaseligne(Integer.parseInt(f.getbNbLigne().getText()));
-            model.setNbcasecolonne(Integer.parseInt(f.getbNbColonne().getText()));
-            model.setNbMines(Integer.parseInt(f.getbNbMine().getText()));
-            f.changerVue(5);
+            if(!estUnEntier(f.getbNbLigne().getText())){
+                f.genererErreur("ligne");
+            }
+            else if(!estUnEntier(f.getbNbColonne().getText())){
+                f.genererErreur("colonne");
+            }
+            else if(!estUnEntier(f.getbNbMine().getText())){
+                f.genererErreur("nbMines");
+            }
+            else {
+                int nbLigne = Integer.parseInt(f.getbNbLigne().getText());
+                int nbColonne = Integer.parseInt(f.getbNbColonne().getText());
+                int nbMine = Integer.parseInt(f.getbNbMine().getText());
+                if (nbLigne < 2 || nbLigne > 16) {
+                    f.genererErreur("ligne");
+                } else if (nbColonne < 2 || nbColonne > 30) {
+                    f.genererErreur("colonne");
+                } else if (nbMine > (nbLigne * nbColonne) / 2) {
+                    f.genererErreur("nbMines");
+                } else {
+                    model.setNbcaseligne(nbLigne);
+                    model.setNbcasecolonne(nbColonne);
+                    model.setNbMines(nbMine);
+                    f.changerVue(5);
+                }
+            }
         }
 
         else if(source == f.getbFacile()){
@@ -93,5 +115,15 @@ public class ControlButton implements ActionListener {
             f.changerVue(1);
         }
 
+    }
+
+    private boolean estUnEntier(String chaine) {
+        try {
+            Integer.parseInt(chaine);
+        } catch (NumberFormatException e){
+            return false;
+        }
+
+        return true;
     }
 }
