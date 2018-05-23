@@ -68,8 +68,8 @@ public class ControlButton implements ActionListener {
                 } else if (nbMine > (nbLigne * nbColonne) / 2) {
                     f.genererErreur("nbMines");
                 } else {
-                    model.setNbcaseligne(nbLigne);
-                    model.setNbcasecolonne(nbColonne);
+                    model.setNbCaseLigne(nbLigne);
+                    model.setNbCaseColonne(nbColonne);
                     model.setNbMines(nbMine);
                     f.changerVue(5);
                 }
@@ -78,22 +78,22 @@ public class ControlButton implements ActionListener {
 
         else if(source == f.getbFacile()){
             model.setDifficulte(1);
-            model.setNbminecolonne(9);
-            model.setNbmineligne(9);
+            model.setNbCaseColonne(9);
+            model.setNbCaseLigne(9);
             f.changerVue(5);
         }
 
         else if(source == f.getbMoyen()){
             model.setDifficulte(2);
-            model.setNbminecolonne(16);
-            model.setNbmineligne(16);
+            model.setNbCaseColonne(16);
+            model.setNbCaseLigne(16);
             f.changerVue(5);
         }
 
         else if(source == f.getbDiffile()){
             model.setDifficulte(3);
-            model.setNbminecolonne(30);
-            model.setNbmineligne(16);
+            model.setNbCaseColonne(30);
+            model.setNbCaseLigne(16);
             f.changerVue(5);
         }
 

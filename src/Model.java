@@ -27,52 +27,54 @@ public class Model {
     public ImageIcon getImagesMines() {
         return imagesMines;
     }
-
-    protected void setNbmineligne(int nb){
-        this.nbcaseligne=nb;
-    }
-
-    protected void setNbMines(int nbMines) {
-        this.nbMines = nbMines;
-    }
-
-    protected void setNbminecolonne(int nb){
-        this.nbcasecolonne=nb;
-    }
-    protected  void initTab(){
-        tabMines = new int[nbcaseligne][nbcasecolonne];
-        tabVoisins = new int[nbcaseligne][nbcasecolonne];
-        tabJeu = new int[nbcaseligne][nbcasecolonne];
-    }
-
-    protected int getNbcaseligne() {
-        return nbcaseligne;
-    }
-
-    protected int getNbcasecolonne() {
-        return nbcasecolonne;
-    }
-
-    public void setNbcaseligne(int nbcaseligne) {
-        this.nbcaseligne = nbcaseligne;
-    }
-
-    public void setNbcasecolonne(int nbcasecolonne) {
-        this.nbcasecolonne = nbcasecolonne;
-    }
-
     protected int[][] getTabMines() {
         return tabMines;
     }
 
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public void setX(int x) {
+        this.x = x;
+    }
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    protected void setNbmineligne(int nb){
+        this.nbcaseligne=nb;
+    }
+    protected void setNbMines(int nbMines) {
+        this.nbMines = nbMines;
+    }
+    protected void setNbminecolonne(int nb){
+        this.nbcasecolonne=nb;
+    }
+
+
+    protected int getNbcaseligne() {
+        return nbcaseligne;
+    }
+    protected int getNbcasecolonne() {
+        return nbcasecolonne;
+    }
     protected int getNbMines() {
         return nbMines;
+    }
+
+    public void setNbCaseLigne(int nbcaseligne) {
+        this.nbcaseligne = nbcaseligne;
+    }
+    public void setNbCaseColonne(int nbcasecolonne) {
+        this.nbcasecolonne = nbcasecolonne;
     }
 
     public int getNbMinesRestant() {
         return nbMinesRestant;
     }
-
     public void setNbMinesRestant(int nbMinesRestant) {
         this.nbMinesRestant = nbMinesRestant;
     }
@@ -80,16 +82,17 @@ public class Model {
     protected void setDifficulte(int difficulte){
         this.difficulte = difficulte;
     }
-
     public int getDifficulte() {
         return difficulte;
     }
+
     public void setEstTor(boolean estTor) {
         this.estTor = estTor;
     }
     public boolean isEstTor() {
         return estTor;
     }
+
     public int getScore() {
         return score;
     }
@@ -104,7 +107,6 @@ public class Model {
             n = n*10+digit-'0';
         }
         return n;
-
     }
 
     protected void placeMine(){
@@ -112,32 +114,24 @@ public class Model {
             for (int i = 0; i <nbcaseligne; i++) {
                 for (int j=0; i<nbcasecolonne ; j++){
                     int alea = (int)(Math.random()*100) ;
-                    if (alea == 1 && nbMines > 0 && tabMines[i][j] != 1){
+                    if (alea == 1 && nbMines > 0 && tabMines[i][j] == 1){
                         tabMines[i][j] = 1 ;
                         nbMines -=1 ;
                     }
                 }
+
             }
         }
     }
+
+    protected  void initTab(){
+        tabMines = new int[nbcaseligne][nbcasecolonne];
+        tabVoisins = new int[nbcaseligne][nbcasecolonne];
+        tabJeu = new int[nbcaseligne][nbcasecolonne];
+    }
+
     protected void placeVoisins(){
 
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     protected boolean estGagnant() {
