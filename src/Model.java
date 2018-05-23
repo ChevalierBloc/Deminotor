@@ -27,7 +27,7 @@ public class Model {
     public ImageIcon getImagesMines() {
         return imagesMines;
     }
-    protected int[][] getTabMines() {
+    public int[][] getTabMines() {
         return tabMines;
     }
 
@@ -44,24 +44,14 @@ public class Model {
         this.y = y;
     }
 
-    protected void setNbmineligne(int nb){
-        this.nbcaseligne=nb;
-    }
-    protected void setNbMines(int nbMines) {
-        this.nbMines = nbMines;
-    }
-    protected void setNbminecolonne(int nb){
-        this.nbcasecolonne=nb;
-    }
 
-
-    protected int getNbcaseligne() {
+    public int getNbcaseligne() {
         return nbcaseligne;
     }
-    protected int getNbcasecolonne() {
+    public int getNbcasecolonne() {
         return nbcasecolonne;
     }
-    protected int getNbMines() {
+    public int getNbMines() {
         return nbMines;
     }
 
@@ -71,6 +61,10 @@ public class Model {
     public void setNbCaseColonne(int nbcasecolonne) {
         this.nbcasecolonne = nbcasecolonne;
     }
+    public void setNbMines(int nbMines) {
+        this.nbMines = nbMines;
+    }
+
 
     public int getNbMinesRestant() {
         return nbMinesRestant;
@@ -79,7 +73,7 @@ public class Model {
         this.nbMinesRestant = nbMinesRestant;
     }
 
-    protected void setDifficulte(int difficulte){
+    public void setDifficulte(int difficulte){
         this.difficulte = difficulte;
     }
     public int getDifficulte() {
@@ -109,7 +103,7 @@ public class Model {
         return n;
     }
 
-    protected void placeMine(){
+    public void placeMine(){
         while(nbMines != 0){
             for (int i = 0; i <nbcaseligne; i++) {
                 for (int j=0; i<nbcasecolonne ; j++){
@@ -124,7 +118,7 @@ public class Model {
         }
     }
 
-    protected  void initTab(){
+    public void initTab(){
         tabMines = new int[nbcaseligne][nbcasecolonne];
         tabVoisins = new int[nbcaseligne][nbcasecolonne];
         tabJeu = new int[nbcaseligne][nbcasecolonne];
@@ -134,7 +128,7 @@ public class Model {
 
     }
 
-    protected boolean estGagnant() {
+    public boolean estGagnant() {
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
                 //Verifie si la cases n'est pas découvert
@@ -146,7 +140,7 @@ public class Model {
         return true ;
     }
 
-//    protected boolean estPerdu(){
+//    public boolean estPerdu(){
 //        for (int i = 0 ; i<nbcaseligne;i++){
 //            for (int j = 0 ; j<nbcasecolonne;j++){
 //        if (tabJeu[i][j] == 10){
@@ -155,7 +149,7 @@ public class Model {
 //
 //    }
 
-    protected void decouvreCases(){
+    public void decouvreCases(){
 
     }
 
