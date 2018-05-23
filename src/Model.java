@@ -117,7 +117,6 @@ public class Model {
                         nbMines -=1 ;
                     }
                 }
-
             }
         }
     }
