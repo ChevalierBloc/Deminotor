@@ -104,6 +104,7 @@ public class Model {
             n = n*10+digit-'0';
         }
         return n;
+
     }
 
     protected void placeMine(){
