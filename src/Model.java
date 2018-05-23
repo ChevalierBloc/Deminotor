@@ -111,7 +111,7 @@ public class Model {
             for (int i = 0; i <nbcaseligne; i++) {
                 for (int j=0; i<nbcasecolonne ; j++){
                     int alea = (int)(Math.random()*100) ;
-                    if (alea == 1 && nbMines > 0 && tabMines[i][j] == 1){
+                    if (alea == 1 && nbMines > 0 && tabMines[i][j] != 1){
                         tabMines[i][j] = 1 ;
                         nbMines -=1 ;
                     }
