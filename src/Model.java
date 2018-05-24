@@ -104,11 +104,13 @@ public class Model {
     }
 
     public void placeMine(){
-        while(nbMines != 0){
-            for (int i = 0; i <nbcaseligne; i++) {
-                for (int j=0; i<nbcasecolonne ; j++){
-                    int alea = (int)(Math.random()*100) ;
-                    if (alea == 1 && nbMines > 0 && tabMines[i][j] == 1){
+        int alea;
+        while(nbMines > 0){
+            for (int i = 0; i <tabMines.length; i++) {
+                for (int j=0; j<tabMines[i].length ; j++){
+                    System.out.println(j);
+                    alea = (int)(Math.random()*100) ;
+                    if (alea == 1 && nbMines > 0 && tabMines[i][j] != 1){
                         tabMines[i][j] = 1 ;
                         nbMines -=1 ;
                     }

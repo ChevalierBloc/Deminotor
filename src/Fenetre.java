@@ -290,6 +290,9 @@ public class Fenetre extends JFrame {
                 tabButton[i][j] = new JButton();
                 tabButton[i][j].setPreferredSize(new Dimension(20,20));
                 tabButton[i][j].setActionCommand(""+i+j);
+                System.out.println(model.getTabMines()[i][j]);
+                if(model.getTabMines()[i][j] == 1)
+                    tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
                 panGrille.add(new JPanel().add(tabButton[i][j]));
             }
         }

@@ -80,6 +80,9 @@ public class ControlButton implements ActionListener {
             model.setDifficulte(1);
             model.setNbCaseColonne(9);
             model.setNbCaseLigne(9);
+            model.setNbMines(16);
+            model.initTab();
+            model.placeMine();
             f.changerVue(5);
         }
 
@@ -87,6 +90,9 @@ public class ControlButton implements ActionListener {
             model.setDifficulte(2);
             model.setNbCaseColonne(16);
             model.setNbCaseLigne(16);
+            model.setNbMines(52);
+            model.initTab();
+            model.placeMine();
             f.changerVue(5);
         }
 
@@ -94,6 +100,9 @@ public class ControlButton implements ActionListener {
             model.setDifficulte(3);
             model.setNbCaseColonne(30);
             model.setNbCaseLigne(16);
+            model.setNbMines(160);
+            model.initTab();
+            model.placeMine();
             f.changerVue(5);
         }
 
