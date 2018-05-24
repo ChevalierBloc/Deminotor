@@ -129,6 +129,9 @@ public class Fenetre extends JFrame {
         return bRetourGrille;
     }
 
+    public JButton[][] getTabButton() {
+        return tabButton;
+    }
 
     public void setControlBouton(ActionListener actionListener){
         bJeu.addActionListener(actionListener);
@@ -151,6 +154,14 @@ public class Fenetre extends JFrame {
         bRetourDifficulte.addActionListener(actionListener);
 
         bRetourGrille.addActionListener(actionListener);
+    }
+
+    public void setControlBoutonGrille(ActionListener actionListener){
+        for(int i=0; i<tabButton.length; i++){
+            for( int j=0; j<tabButton[i].length; j++){
+                tabButton[i][j].addActionListener(actionListener);
+            }
+        }
     }
 
     public void initAttribut(){
@@ -188,7 +199,7 @@ public class Fenetre extends JFrame {
         bRetourDifficulte = new JButton("Retour");
 
         lScore = new JLabel("Score :"+model.getScore());
-        lMine = new JLabel("Mines Restantes :"+model.getNbMines());
+        lMine = new JLabel("Nombres de mines :"+model.getNbMines());
         bRetourGrille = new JButton("Retour");
     }
 
@@ -291,8 +302,6 @@ public class Fenetre extends JFrame {
                 tabButton[i][j].setPreferredSize(new Dimension(20,20));
                 tabButton[i][j].setActionCommand(""+i+j);
                 System.out.println(model.getTabMines()[i][j]);
-                if(model.getTabMines()[i][j] == 1)
-                    tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
                 panGrille.add(new JPanel().add(tabButton[i][j]));
             }
         }
@@ -384,7 +393,7 @@ public class Fenetre extends JFrame {
 
     public void actualiser(){
         lScore.setText("Score :"+model.getScore());
-        lMine.setText("Mines Restantes :"+model.getNbMines());
+        lMine.setText("Nombres de mines :"+model.getNbMines());
     }
 
     public void genererErreur(String erreur){
