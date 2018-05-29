@@ -135,8 +135,7 @@ public class Model {
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
                 tabVoisins[i][j] = 0 ;
-                if( 0 < i && i < 8) {
-                    System.out.println("Coucou");
+                if( 0 < i && i < nbcaseligne-1) {
                     if (j == 0) {
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
@@ -153,7 +152,7 @@ public class Model {
                         if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    } else if (j > 0 && j < 8) {
+                    } else if (j > 0 && j < nbcasecolonne-1) {
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
@@ -176,6 +175,98 @@ public class Model {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j==nbcasecolonne-1){
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    }
+                } else if (i == 0) {
+                    if (j == 0) {
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j > 0 && j < nbcasecolonne-1) {
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j == nbcasecolonne-1){
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    }
+                }else if (i == nbcaseligne-1) {
+                    if (j == 0) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j > 0 && j < nbcasecolonne-1) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j == nbcasecolonne-1){
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
                     }
