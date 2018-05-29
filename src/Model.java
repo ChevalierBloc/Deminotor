@@ -130,60 +130,56 @@ public class Model {
         tabJeu = new int[nbcaseligne][nbcasecolonne];
     }
 
-    protected int initVoisinsNonTor(int i, int j){
-        int vois = 0 ;
-        if(i > 0 && i < 8){
-            if (j == 0){
-                if (tabMines[i+1][j] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i+1][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i-1][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i-1][j] == 1){
-                    vois++ ;
-                }
-            } else if (j>0 && j<8){
-                if (tabMines[i+1][j] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i+1][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i-1][j+1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i-1][j] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i-1][j-1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i][j-1] == 1){
-                    vois++ ;
-                }
-                if (tabMines[i+1][j-1] == 1){
-                    vois++ ;
-                }
-            }
-        }
-        System.out.println(vois);
-        return vois ;
-    }
 
     public void placeVoisinsNonTor(){
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
-                tabVoisins[i][j] = initVoisinsNonTor(i,j);
+                tabVoisins[i][j] = 0 ;
+                if( 0 < i && i < 8) {
+                    System.out.println("Coucou");
+                    if (j == 0) {
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j > 0 && j < 8) {
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    }
+                }
             }
         }
     }

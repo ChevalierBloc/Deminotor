@@ -73,6 +73,7 @@ public class ControlButton implements ActionListener {
                     model.setNbCaseLigne(nbLigne);
                     model.setNbCaseColonne(nbColonne);
                     model.setNbMines(nbMine);
+                    model.placeVoisinsNonTor();
                     f.actualiser();
                     f.changerVue(5);
                     f.setControlBoutonGrille(this);
@@ -88,6 +89,7 @@ public class ControlButton implements ActionListener {
             System.out.println(model.getNbMines());
             model.initTab();
             model.placeMine();
+            model.placeVoisinsNonTor();
             f.actualiser();
             f.changerVue(5);
             f.setControlBoutonGrille(this);
@@ -100,6 +102,7 @@ public class ControlButton implements ActionListener {
             model.setNbMines(52);
             model.initTab();
             model.placeMine();
+            model.placeVoisinsNonTor();
             f.actualiser();
             f.changerVue(5);
             f.setControlBoutonGrille(this);
@@ -112,6 +115,7 @@ public class ControlButton implements ActionListener {
             model.setNbMines(160);
             model.initTab();
             model.placeMine();
+            model.placeVoisinsNonTor();
             f.actualiser();
             f.changerVue(5);
             f.setControlBoutonGrille(this);
