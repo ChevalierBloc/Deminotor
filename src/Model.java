@@ -130,7 +130,7 @@ public class Model {
         tabJeu = new int[nbcaseligne][nbcasecolonne];
     }
 
-// Revoir cette fonction car les bords déconne
+// Revoir cette fonction car les bords déconne + difficulté autre que facile pas cool
     public void placeVoisinsNonTor(){
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
