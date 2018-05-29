@@ -22,6 +22,7 @@ public class Fenetre extends JFrame {
     private JButton bRetourJouer;
 
     private JLabel nomDemineurOption;
+    private JCheckBox son;
     private JButton bRetourOption;
 
     private JLabel nomDemineurPerso;
@@ -180,6 +181,7 @@ public class Fenetre extends JFrame {
         bRetourJouer = new JButton("Retour");
 
         nomDemineurOption = new JLabel("Option");
+        son = new JCheckBox("Activer le son");
         bRetourOption = new JButton("Retour");
 
         nomDemineurPerso = new JLabel("Personnaliser");
@@ -257,10 +259,11 @@ public class Fenetre extends JFrame {
         panDemineur.add(nomDemineurOption);
 
         JPanel panel = new JPanel();
-        gl = new GridLayout(2,1);
+        gl = new GridLayout(3,1);
         gl.setVgap(20);
         panel.setLayout(gl);
         panel.add(panDemineur);
+        panel.add(son);
         panel.add(bRetourOption);
 
         panGeneral.add(panel);
