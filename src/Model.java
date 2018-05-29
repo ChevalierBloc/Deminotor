@@ -19,6 +19,7 @@ public class Model {
     private ImageIcon imagesMines ;
     private int x;
     private int y;
+    private boolean music ;
 
     public Model() {
         imagesMines = new ImageIcon("images/minotaur.png") ;
@@ -126,8 +127,28 @@ public class Model {
         tabJeu = new int[nbcaseligne][nbcasecolonne];
     }
 
-    protected void placeVoisins(){
+    protected int initVoisinsNonTor(int i, int j){
+        int vois = 0;
+        int ic ;
+        int jc ;
+        int size = nbcasecolonne*nbcaseligne ;
+        for(int k=i-1; k<= i+1; k++) {
+            ic = (k + size)%size;
+            for (int l = j-1; l<= j+1; l++) {
+                jc = (l+size)%size;
+                if (((ic != i) || (jc != j)) && (tabMines[ic][jc] == 1))
+                    vois++;
+            }
+        }
+        return vois ;
+    }
 
+    protected void placeVoisinsNonTor(){
+        for (int i = 0 ; i<nbcaseligne;i++){
+            for (int j = 0 ; j<nbcasecolonne;j++){
+                tabVoisins[i][j] = initVoisinsNonTor(i,j);
+            }
+        }
     }
 
     public boolean estGagnant() {
