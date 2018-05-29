@@ -66,7 +66,6 @@ public class Model {
         this.nbMines = nbMines;
     }
 
-
     public int getNbMinesRestant() {
         return nbMinesRestant;
     }
@@ -132,18 +131,52 @@ public class Model {
     }
 
     protected int initVoisinsNonTor(int i, int j){
-        int vois = 0;
-        int ic ;
-        int jc ;
-        int size = nbcasecolonne*nbcaseligne ;
-        for(int k=i-1; k<= i+1; k++) {
-            ic = (k + size)%size;
-            for (int l = j-1; l<= j+1; l++) {
-                jc = (l+size)%size;
-                if (((ic != i) || (jc != j)) && (tabMines[ic][jc] == 1))
-                    vois++;
+        int vois = 0 ;
+        if(i > 0 && i < 8){
+            if (j == 0){
+                if (tabMines[i+1][j] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i+1][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i-1][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i-1][j] == 1){
+                    vois++ ;
+                }
+            } else if (j>0 && j<8){
+                if (tabMines[i+1][j] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i+1][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i-1][j+1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i-1][j] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i-1][j-1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i][j-1] == 1){
+                    vois++ ;
+                }
+                if (tabMines[i+1][j-1] == 1){
+                    vois++ ;
+                }
             }
         }
+        System.out.println(vois);
         return vois ;
     }
 
