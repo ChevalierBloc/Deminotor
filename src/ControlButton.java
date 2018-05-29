@@ -1,3 +1,5 @@
+import sun.awt.SunHints;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -141,6 +143,9 @@ public class ControlButton implements ActionListener {
                         if(model.getTabMines()[i][j] == 1){
                             f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                             System.out.println("perdu !!!!!!");
+                        }else{
+                            System.out.println(model.getTabVoisins()[i][j]);
+                            f.getTabButton()[i][j].setText(String.valueOf(model.getTabVoisins()[i][j]));
                         }
                     }
                 }

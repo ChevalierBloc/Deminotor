@@ -88,6 +88,10 @@ public class Model {
         return estTor;
     }
 
+    public int[][] getTabVoisins() {
+        return tabVoisins;
+    }
+
     public int getScore() {
         return score;
     }
@@ -143,7 +147,7 @@ public class Model {
         return vois ;
     }
 
-    protected void placeVoisinsNonTor(){
+    public void placeVoisinsNonTor(){
         for (int i = 0 ; i<nbcaseligne;i++){
             for (int j = 0 ; j<nbcasecolonne;j++){
                 tabVoisins[i][j] = initVoisinsNonTor(i,j);
