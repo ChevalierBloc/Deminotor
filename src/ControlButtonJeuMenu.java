@@ -5,13 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
-public class ControlButton implements ActionListener {
+public class ControlButtonJeuMenu implements ActionListener {
 
     Fenetre f;
 
     Model model;
 
-    public ControlButton(Model model, Fenetre f) {
+    public ControlButtonJeuMenu(Model model, Fenetre f) {
         this.f = f;
         this.model = model;
         f.setControlBouton(this);
@@ -76,7 +76,7 @@ public class ControlButton implements ActionListener {
                     model.setNbVoisin();
                     f.actualiser();
                     f.changerVue(5);
-                    f.setControlBoutonGrille(this);
+                    new ControlButtonJeuGrille(model, f);
                 }
             }
         }
@@ -86,13 +86,12 @@ public class ControlButton implements ActionListener {
             model.setNbCaseColonne(9);
             model.setNbCaseLigne(9);
             model.setNbMines(16);
-            System.out.println(model.getNbMines());
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
             f.actualiser();
             f.changerVue(5);
-            f.setControlBoutonGrille(this);
+            new ControlButtonJeuGrille(model, f);
         }
 
         else if(source == f.getbMoyen()){
@@ -105,7 +104,7 @@ public class ControlButton implements ActionListener {
             model.setNbVoisin();
             f.actualiser();
             f.changerVue(5);
-            f.setControlBoutonGrille(this);
+            new ControlButtonJeuGrille(model, f);
         }
 
         else if(source == f.getbDiffile()){
@@ -116,10 +115,9 @@ public class ControlButton implements ActionListener {
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
-
             f.actualiser();
             f.changerVue(5);
-            f.setControlBoutonGrille(this);
+            new ControlButtonJeuGrille(model, f);
         }
 
         else if(source == f.getbRetourDifficulte()){
@@ -138,23 +136,6 @@ public class ControlButton implements ActionListener {
 
         else if(source == f.getbRetourOption()){
             f.changerVue(1);
-        }
-        else{
-            String bouton;
-            for(int i=0; i<f.getTabButton().length; i++){
-                for( int j=0; j<f.getTabButton()[i].length; j++){
-                    bouton = ""+i+j;
-                    if (bouton.equals(e.getActionCommand())) {
-                        if(model.getTabMines()[i][j] == 1){
-                            f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
-                            System.out.println("perdu !!!!!!");
-                        }else{
-                            System.out.println(model.getTabVoisins()[i][j]);
-                            f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
-                        }
-                    }
-                }
-            }
         }
     }
 
