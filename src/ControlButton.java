@@ -150,7 +150,7 @@ public class ControlButton implements ActionListener {
                             System.out.println("perdu !!!!!!");
                         }else{
                             System.out.println(model.getTabVoisins()[i][j]);
-                            f.getTabButton()[i][j].setText(String.valueOf(model.getTabVoisins()[i][j]));
+                            f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                         }
                     }
                 }

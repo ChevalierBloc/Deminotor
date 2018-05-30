@@ -6,6 +6,7 @@ public class Model {
     1 = mines
     2 = Mines explosé
      */
+    private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png")};
     private int score;
     private int difficulte;
     private boolean estTor;
@@ -25,6 +26,9 @@ public class Model {
         imagesMines = new ImageIcon("images/minotaur.png") ;
     }
 
+    public ImageIcon[] getImageNombres() {
+        return imageNombres;
+    }
     public ImageIcon getImagesMines() {
         return imagesMines;
     }
