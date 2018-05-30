@@ -131,10 +131,13 @@ public class Model {
     }
 
 // Revoir cette fonction car les bords déconne + difficulté autre que facile pas cool
+//je propose de faire un placeVoisin que ce soit tor et non tor, car le principe pour le centre est
+// le même pour les deux, et de mettre un booleen tor, si il est true on traite les cotes en tor, sinon on les traite noramlement
     public void placeVoisinsNonTor(){
-        for (int i = 0 ; i<nbcaseligne;i++){
-            for (int j = 0 ; j<nbcasecolonne;j++){
+        for (int i = 0 ; i< nbcaseligne;i++){
+            for (int j = 0 ; j< nbcasecolonne;j++){
                 tabVoisins[i][j] = 0 ;
+                //traite les cases du centre
                 if( 0 < i && i < nbcaseligne-1) {
                     if (j == 0) {
                         if (tabMines[i + 1][j] == 1) {
@@ -152,6 +155,7 @@ public class Model {
                         if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        //traite les cases du centre
                     } else if (j > 0 && j < nbcasecolonne-1) {
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
@@ -221,6 +225,7 @@ public class Model {
                         if (tabMines[i + 1][j-1] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        //ici il faudrait donc traiter avec un if/Else avec un booleen qui dit sur le jeu est tor ou non
                     } else if (j == nbcasecolonne-1){
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
