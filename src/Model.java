@@ -130,16 +130,43 @@ public class Model {
         tabJeu = new int[nbcaseligne][nbcasecolonne];
     }
 
-// Revoir cette fonction car les bords déconne + difficulté autre que facile pas cool
-//je propose de faire un placeVoisin que ce soit tor et non tor, car le principe pour le centre est
-// le même pour les deux, et de mettre un booleen tor, si il est true on traite les cotes en tor, sinon on les traite noramlement
-    public void placeVoisinsNonTor(){
-        for (int i = 0 ; i< nbcaseligne;i++){
-            for (int j = 0 ; j< nbcasecolonne;j++){
-                tabVoisins[i][j] = 0 ;
-                //traite les cases du centre
-                if( 0 < i && i < nbcaseligne-1) {
-                    if (j == 0) {
+
+    public void setNbVoisin(){
+        for (int i = 0; i < nbcaseligne; i++) {
+            for (int j = 0; j < nbcasecolonne; j++) {
+                if ((i>0 && i < nbcaseligne - 1) && (j > 0 && j < nbcasecolonne -1)){
+                    if (tabMines[i-1][j] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i-1][j+1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i-1][j-1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i+1][j] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i+1][j+1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i+1][j-1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i][j-1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                    if (tabMines[i][j+1] == 1){
+                        tabVoisins[i][j]++;
+                    }
+                }else if (estTor){
+                    if (j == 0 && i != 0 && i != nbcaseligne-1) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
@@ -149,57 +176,197 @@ public class Model {
                         if (tabMines[i][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i - 1][j + 1] == 1) {
+                        if (tabMines[i][nbcasecolonne-1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i - 1][j] == 1) {
+                        if (tabMines[i-1][nbcasecolonne-1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        //traite les cases du centre
-                    } else if (j > 0 && j < nbcasecolonne-1) {
+                        if (tabMines[i+1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == 0 && j != 0 && j != nbcasecolonne-1) {
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i + 1][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][j+1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == nbcaseligne-1 && j != 0 && j != nbcasecolonne-1) {
                         if (tabMines[i][j + 1] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                        if (tabMines[i - 1][j + 1] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                        if (tabMines[i - 1][j] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                        if (tabMines[i - 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i + 1][j - 1] == 1) {
+                        if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    } else if (j==nbcasecolonne-1){
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][j+1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j == nbcasecolonne-1 && i != 0 && i!=nbcaseligne-1) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i + 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i][j - 1] == 1) {
+                        if (tabMines[i + 1][0] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        if (tabMines[i][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i-1][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == nbcaseligne-1 && j == nbcasecolonne-1) {
                         if (tabMines[i - 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+
+                        if (tabMines[i - 1][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][j-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == 0 && j == 0) {
+                        if (tabMines[i + 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == nbcaseligne-1 && j == 0) {
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (i == 0 && j == nbcasecolonne-1) {
+                        if (tabMines[i + 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][nbcasecolonne-1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[nbcaseligne-1][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[0][0] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[1][0] == 1) {
                             tabVoisins[i][j]++;
                         }
                     }
-                } else if (i == 0) {
-                    if (j == 0) {
+                }else {
+                    if (j == 0 && i!=0 && i!=nbcaseligne-1) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
@@ -209,69 +376,92 @@ public class Model {
                         if (tabMines[i][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    } else if (j > 0 && j < nbcasecolonne-1) {
+                    } else if (i == 0 && j!=0 && j!=nbcasecolonne-1) {
+                        if (tabMines[i][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i + 1][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i][j + 1] == 1) {
-                            tabVoisins[i][j]++;
-                        }
                         if (tabMines[i + 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i + 1][j-1] == 1) {
+                    } else if (i == nbcaseligne-1 && j!=0 && j!= nbcasecolonne-1) {
+                        if (tabMines[i][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        //ici il faudrait donc traiter avec un if/Else avec un booleen qui dit sur le jeu est tor ou non
-                    } else if (j == nbcasecolonne-1){
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                    } else if (j == nbcasecolonne-1 && i!=0 && i!=nbcasecolonne-1) {
+                        if (tabMines[i - 1][j] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i + 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    }
-                }else if (i == nbcaseligne-1) {
-                    if (j == 0) {
+                    } else if (i == nbcaseligne-1 && j == nbcasecolonne-1) {
+                        if (tabMines[i - 1][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
                         if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i - 1][j + 1] == 1) {
+                    } else if (i == 0 && j == 0) {
+                        if (tabMines[i + 1][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    } else if (j > 0 && j < nbcasecolonne-1) {
-                        if (tabMines[i - 1][j] == 1) {
+                        if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
+                    } else if (i == nbcaseligne-1 && j == 0) {
                         if (tabMines[i - 1][j + 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i][j + 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                        if (tabMines[i - 1][j - 1] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                        if (tabMines[i - 1][j-1] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                    } else if (j == nbcasecolonne-1){
-                        if (tabMines[i - 1][j] == 1) {
-                            tabVoisins[i][j]++;
-                        }
-                        if (tabMines[i - 1][j - 1] == 1) {
+                    } else if (i == 0 && j == nbcasecolonne-1) {
+                        if (tabMines[i + 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
                         if (tabMines[i][j - 1] == 1) {
+                            tabVoisins[i][j]++;
+                        }
+                        if (tabMines[i + 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
                     }
@@ -279,6 +469,7 @@ public class Model {
             }
         }
     }
+
 
     public boolean estGagnant() {
         for (int i = 0 ; i<nbcaseligne;i++){
