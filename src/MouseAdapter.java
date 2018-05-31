@@ -25,7 +25,7 @@ public class MouseAdapter implements MouseListener {
         for(int i=0; i<tabButton.length; i++){
             for( int j=0; j<tabButton[i].length; j++){
                 if(model.getX() == i && model.getY() == j) {
-                    System.out.println("testMouse");
+                    System.out.println("clique droit" + model.isMouseRightClic());
                     if(model.isMouseRightClic()){
                         f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                     }

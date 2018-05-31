@@ -22,7 +22,6 @@ public class ControlButtonJeuGrille implements ActionListener {
             for( int j=0; j<f.getTabButton()[i].length; j++){
                 bouton = i+"/"+j;
                 if (bouton.equals(e.getActionCommand())) {
-                    System.out.println("testAction");
                     model.setX(i);
                     model.setY(j);
                 }
