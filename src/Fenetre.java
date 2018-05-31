@@ -187,10 +187,13 @@ public class Fenetre extends JFrame {
         nomDemineurPerso = new JLabel("Personnaliser");
         lNbLigne = new JLabel("Nombre de ligne :");
         bNbLigne = new JTextField();
+        bNbLigne.setPreferredSize(new Dimension(60,25));
         lNbColonne = new JLabel("Nombre de colonne :");;
         bNbColonne = new JTextField();
-        lNbMine = new JLabel("Nombre de mine :");;
+        bNbColonne.setPreferredSize(new Dimension(60,25));
+        lNbMine = new JLabel("Nombre de mine :");
         bNbMine = new JTextField();
+        bNbMine.setPreferredSize(new Dimension(60,25));
         bValider = new JButton("Valider");
         bRetourPerso = new JButton("Retour");
 
@@ -326,38 +329,49 @@ public class Fenetre extends JFrame {
 
 
     public void ajouterWidgetVuePerso(){
+
         JPanel panDemineur = new JPanel();
-        GridLayout gl = new GridLayout(1,2);
-        gl.setHgap(5);
-        panDemineur.setLayout(gl);
+        panDemineur.setLayout(new BoxLayout(panDemineur, BoxLayout.X_AXIS));
+
         panDemineur.add(imageDemineur);
         panDemineur.add(nomDemineurPerso);
 
         JPanel panNbLigne = new JPanel();
-        panNbLigne.setLayout(gl);
-        panDemineur.add(lNbLigne);
-        panDemineur.add(bNbLigne);
+        JPanel panNbLigne2 = new JPanel();
+        panNbLigne.setLayout(new BoxLayout(panNbLigne, BoxLayout.X_AXIS));
+        panNbLigne2.add(panNbLigne);
+
+        panNbLigne.add(lNbLigne);
+        panNbLigne.add(bNbLigne);
 
         JPanel panNbColonne = new JPanel();
-        panNbColonne.setLayout(gl);
-        panDemineur.add(lNbColonne);
-        panDemineur.add(bNbColonne);
+        JPanel panNbColonne2 = new JPanel();
+        panNbColonne.setLayout(new BoxLayout(panNbColonne, BoxLayout.X_AXIS));
+        panNbColonne2.add(panNbColonne);
+
+        panNbColonne.add(lNbColonne);
+        panNbColonne.add(bNbColonne);
 
         JPanel panNbMine = new JPanel();
-        panNbMine.setLayout(gl);
-        panDemineur.add(lNbMine);
-        panDemineur.add(bNbMine);
+        JPanel panNbMine2 = new JPanel();
+        panNbMine.setLayout(new BoxLayout(panNbMine, BoxLayout.X_AXIS));
+        panNbMine2.add(panNbMine);
 
-        JPanel panel = new JPanel();
-        gl = new GridLayout(6,1);
-        gl.setVgap(20);
-        panel.setLayout(gl);
+        panNbMine.add(lNbMine);
+        panNbMine.add(bNbMine);
+
+        JPanel panButon = new JPanel();
+        panButon.setLayout(new BoxLayout(panButon,BoxLayout.X_AXIS));
+        panButon.add(bValider);
+        panButon.add(bRetourPerso);
+
+        JPanel panel = new JPanel(new GridLayout(6,1));
+
         panel.add(panDemineur);
-        panel.add(panNbLigne);
-        panel.add(panNbColonne);
-        panel.add(panNbMine);
-        panel.add(bValider);
-        panel.add(bRetourPerso);
+        panel.add(panNbLigne2);
+        panel.add(panNbColonne2);
+        panel.add(panNbMine2);
+        panel.add(panButon);
 
         panGeneral.add(panel);
 
