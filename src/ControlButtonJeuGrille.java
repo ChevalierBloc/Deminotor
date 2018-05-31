@@ -28,7 +28,7 @@ public class ControlButtonJeuGrille implements ActionListener {
                     System.out.println("source : " + e.getActionCommand());
                     if(model.getTabMines()[i][j] == 1){
                         f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
-                        System.out.println("perdu !!!!!!");
+                        f.perdu();
                     }else{
                         System.out.println(model.getTabVoisins()[i][j]);
                         f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));

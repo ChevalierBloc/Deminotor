@@ -398,6 +398,11 @@ public class Fenetre extends JFrame {
         lMine.setText("Nombres de mines :"+model.getNbMines());
     }
 
+    public void perdu(){
+        JOptionPane perdu = new JOptionPane();
+        perdu.showMessageDialog(null, "Perdu !!!", "Vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public void genererErreur(String erreur){
         JOptionPane optionPane = new JOptionPane();
         switch(erreur){
