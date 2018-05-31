@@ -411,7 +411,7 @@ public class Model {
                         if (tabMines[i - 1][j - 1] == 1) {
                             tabVoisins[i][j]++;
                         }
-                    } else if (j == nbcasecolonne-1 && i!=0 && i!=nbcasecolonne-1) {
+                    } else if (j == nbcasecolonne-1 && i!=0 && i!=nbcaseligne-1) {
                         if (tabMines[i - 1][j] == 1) {
                             tabVoisins[i][j]++;
                         }
