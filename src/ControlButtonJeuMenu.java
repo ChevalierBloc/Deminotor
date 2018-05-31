@@ -76,6 +76,7 @@ public class ControlButtonJeuMenu implements ActionListener {
                     model.setNbVoisin();
                     f.actualiser();
                     f.changerVue(5);
+                    new MouseAdapter(model, f);
                     new ControlButtonJeuGrille(model, f);
                 }
             }
@@ -91,6 +92,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.actualiser();
             f.changerVue(5);
+            new MouseAdapter(model, f);
             new ControlButtonJeuGrille(model, f);
         }
 
@@ -104,6 +106,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.actualiser();
             f.changerVue(5);
+            new MouseAdapter(model, f);
             new ControlButtonJeuGrille(model, f);
         }
 
@@ -117,6 +120,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.actualiser();
             f.changerVue(5);
+            new MouseAdapter(model, f);
             new ControlButtonJeuGrille(model, f);
         }
 

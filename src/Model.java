@@ -7,6 +7,7 @@ public class Model {
     2 = Mines explosé
      */
     private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png")};
+    private ImageIcon imagesMines, imageDrapeau;
     private int score;
     private int difficulte;
     private boolean estTor;
@@ -17,13 +18,14 @@ public class Model {
     private int[][] tabJeu ;
     private int nbMines ;
     private int nbMinesRestant;
-    private ImageIcon imagesMines ;
     private int x;
     private int y;
+    private boolean isMouseRightClic;
     private boolean music ;
 
     public Model() {
         imagesMines = new ImageIcon("images/minotaur.png") ;
+        imageDrapeau = new ImageIcon("images/drapeau.png") ;
     }
 
     public ImageIcon[] getImageNombres() {
@@ -32,6 +34,10 @@ public class Model {
     public ImageIcon getImagesMines() {
         return imagesMines;
     }
+    public ImageIcon getImageDrapeau() {
+        return imageDrapeau;
+    }
+
     public int[][] getTabMines() {
         return tabMines;
     }
@@ -100,6 +106,20 @@ public class Model {
     }
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public boolean isMouseRightClic() {
+        return isMouseRightClic;
+    }
+    public void setMouseRightClic(boolean MouseRightClic) {
+        isMouseRightClic = MouseRightClic;
+    }
+
+    public boolean isMusic() {
+        return music;
+    }
+    public void setMusic(boolean music) {
+        this.music = music;
     }
 
     public int getIndice(String indice) {

@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 public class Fenetre extends JFrame {
@@ -161,6 +164,14 @@ public class Fenetre extends JFrame {
         for(int i=0; i<tabButton.length; i++){
             for( int j=0; j<tabButton[i].length; j++){
                 tabButton[i][j].addActionListener(actionListener);
+            }
+        }
+    }
+
+    public void setControlBoutonGrilleGauche(MouseListener mouseListener){
+        for(int i=0; i<tabButton.length; i++){
+            for( int j=0; j<tabButton[i].length; j++){
+                tabButton[i][j].addMouseListener(mouseListener);
             }
         }
     }
