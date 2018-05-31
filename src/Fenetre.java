@@ -415,6 +415,13 @@ public class Fenetre extends JFrame {
     public void perdu(){
         JOptionPane perdu = new JOptionPane();
         perdu.showMessageDialog(null, "Perdu !!!", "Vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
+        for (int i = 0 ; i < tabButton.length ; i++){
+            for (int j = 0 ; j < tabButton[i].length ; j++){
+                tabButton[i][j].setEnabled(false);
+                tabButton[i][j].setBackground(Color.GRAY);
+                tabButton[i][j].setIcon(null);
+            }
+        }
     }
 
     public void genererErreur(String erreur){
