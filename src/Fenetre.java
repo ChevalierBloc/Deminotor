@@ -49,6 +49,8 @@ public class Fenetre extends JFrame {
     private JLabel  lMine;
     private JButton bRetourGrille;
 
+    private JButton bDrapeau;
+    private JButton bClique;
     private JButton[][] tabButton;
 
     public Fenetre(Model model) {
@@ -133,6 +135,12 @@ public class Fenetre extends JFrame {
         return bRetourGrille;
     }
 
+    public JButton getbDrapeau() {
+        return bDrapeau;
+    }
+    public JButton getbClique() {
+        return bClique;
+    }
     public JButton[][] getTabButton() {
         return tabButton;
     }
@@ -166,14 +174,8 @@ public class Fenetre extends JFrame {
                 tabButton[i][j].addActionListener(actionListener);
             }
         }
-    }
-
-    public void setControlBoutonGrilleGauche(MouseListener mouseListener){
-        for(int i=0; i<tabButton.length; i++){
-            for( int j=0; j<tabButton[i].length; j++){
-                tabButton[i][j].addMouseListener(mouseListener);
-            }
-        }
+        bDrapeau.addActionListener(actionListener);
+        bClique.addActionListener(actionListener);
     }
 
     public void initAttribut(){
@@ -216,6 +218,8 @@ public class Fenetre extends JFrame {
 
         lScore = new JLabel("Score :"+model.getScore());
         lMine = new JLabel("Nombres de mines :"+model.getNbMines());
+        bDrapeau = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
+        bClique = new JButton();
         bRetourGrille = new JButton("Retour");
     }
 
@@ -327,10 +331,15 @@ public class Fenetre extends JFrame {
         panDemineur.add(imageDemineur);
         panDemineur.add(lMine);
 
+        JPanel panButton = new JPanel();
+        panButton.add(bClique);
+        panButton.add(bDrapeau);
+
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(panDemineur);
         panel.add(panGrille);
+        panel.add(panButton);
         panel.add(bRetourGrille);
 
         panGeneral.add(panel);
