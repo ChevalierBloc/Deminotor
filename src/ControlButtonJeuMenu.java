@@ -73,9 +73,12 @@ public class ControlButtonJeuMenu implements ActionListener {
                     model.setNbCaseLigne(nbLigne);
                     model.setNbCaseColonne(nbColonne);
                     model.setNbMines(nbMine);
+                    model.setNbMinesRestant(nbMine);
+                    model.initTab();
+                    model.placeMine();
                     model.setNbVoisin();
-                    f.actualiser();
                     f.changerVue(5);
+                    f.actualiser();
                     new ControlButtonJeuGrille(model, f);
                 }
             }
@@ -86,11 +89,12 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbCaseColonne(9);
             model.setNbCaseLigne(9);
             model.setNbMines(16);
+            model.setNbMinesRestant(16);
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
-            f.actualiser();
             f.changerVue(5);
+            f.actualiser();
             new ControlButtonJeuGrille(model, f);
         }
 
@@ -99,11 +103,12 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbCaseColonne(16);
             model.setNbCaseLigne(16);
             model.setNbMines(52);
+            model.setNbMinesRestant(52);
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
-            f.actualiser();
             f.changerVue(5);
+            f.actualiser();
             new ControlButtonJeuGrille(model, f);
         }
 
@@ -112,11 +117,12 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbCaseColonne(30);
             model.setNbCaseLigne(16);
             model.setNbMines(160);
+            model.setNbMinesRestant(160);
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
-            f.actualiser();
             f.changerVue(5);
+            f.actualiser();
             new ControlButtonJeuGrille(model, f);
         }
 

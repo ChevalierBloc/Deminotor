@@ -217,9 +217,11 @@ public class Fenetre extends JFrame {
         bRetourDifficulte = new JButton("Retour");
 
         lScore = new JLabel("Score :"+model.getScore());
-        lMine = new JLabel("Nombres de mines :"+model.getNbMines());
-        bDrapeau = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
-        bClique = new JButton();
+        lMine = new JLabel("Nombres de mines :"+model.getNbMinesRestant());
+        bDrapeau = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+        bDrapeau.setPreferredSize(new Dimension(20, 20));
+        bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+        bClique.setPreferredSize(new Dimension(20, 20));
         bRetourGrille = new JButton("Retour");
     }
 
@@ -429,7 +431,7 @@ public class Fenetre extends JFrame {
 
     public void actualiser(){
         lScore.setText("Score :"+model.getScore());
-        lMine.setText("Nombres de mines :"+model.getNbMines());
+        lMine.setText("Nombres de mines :"+model.getNbMinesRestant());
     }
 
     public void perdu(){

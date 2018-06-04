@@ -7,7 +7,9 @@ public class Model {
     2 = Mines explosé
      */
     private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png")};
-    private ImageIcon imagesMines, imageDrapeau;
+    private final ImageIcon imagesMines = new ImageIcon("images/minotaur.png");
+    private final ImageIcon imageDrapeau = new ImageIcon("images/drapeau.png");
+    private final ImageIcon imageClique = new ImageIcon("images/clique.png") ;
     private int score;
     private int difficulte;
     private boolean estTor;
@@ -23,10 +25,7 @@ public class Model {
     private boolean isMouseRightClic;
     private boolean music ;
 
-    public Model() {
-        imagesMines = new ImageIcon("images/minotaur.png") ;
-        imageDrapeau = new ImageIcon("images/drapeau.png") ;
-    }
+    public Model() {}
 
     public ImageIcon[] getImageNombres() {
         return imageNombres;
@@ -36,6 +35,9 @@ public class Model {
     }
     public ImageIcon getImageDrapeau() {
         return imageDrapeau;
+    }
+    public ImageIcon getImageClique() {
+        return imageClique;
     }
 
     public int[][] getTabMines() {

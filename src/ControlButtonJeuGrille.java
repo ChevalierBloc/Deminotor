@@ -27,7 +27,6 @@ public class ControlButtonJeuGrille implements ActionListener {
                 for (int j = 0; j < f.getTabButton()[i].length; j++) {
                     bouton = i + "/" + j;
                     if(e.getActionCommand().equals(bouton)) {
-                        System.out.println("clique droit " + model.isMouseRightClic());
                         if (model.isMouseRightClic()) {
                             f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                         } else {
