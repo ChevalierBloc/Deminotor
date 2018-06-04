@@ -17,7 +17,7 @@ public class Model {
     private int nbcasecolonne;
     private int[][] tabMines;
     private int[][] tabVoisins ;
-    private int[][] tabJeu ;
+    private int[][] tabJeu ;  // 0 = bouton non active, 1 = bouton activer nombre , 2 = bouton activer drapeau
     private int nbMines ;
     private int nbMinesRestant;
     private int x;
@@ -102,6 +102,9 @@ public class Model {
     public int[][] getTabVoisins() {
         return tabVoisins;
     }
+    public int[][] getTabJeu() {
+        return tabJeu;
+    }
 
     public int getScore() {
         return score;
@@ -135,16 +138,16 @@ public class Model {
 
     public void placeMine(){
         int alea;
-        while(nbMines > 0){
+        int nbMineTmp = nbMines;
+        while(nbMineTmp > 0){
             for (int i = 0; i <tabMines.length; i++) {
                 for (int j=0; j<tabMines[i].length ; j++){
                     alea = (int)(Math.random()*100) ;
-                    if (alea == 1 && nbMines > 0 && tabMines[i][j] != 1){
+                    if (alea == 1 && nbMineTmp > 0 && tabMines[i][j] != 1){
                         tabMines[i][j] = 1 ;
-                        nbMines -=1 ;
+                        nbMineTmp -=1 ;
                     }
                 }
-
             }
         }
     }
