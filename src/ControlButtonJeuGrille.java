@@ -41,6 +41,8 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     model.setNbMinesRestant(model.getNbMinesRestant() - 1);
                                     model.getTabJeu()[i][j] = 2;
                                     f.actualiser();
+                                    if(model.estGagnant())
+                                        f.gagner();
                                 }
                             }
                         } else {
@@ -55,6 +57,8 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     model.getTabJeu()[i][j] = 1;
                                     f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                                     f.actualiser();
+                                    if(model.estGagnant())
+                                        f.gagner();
                                 }
                             }
                         }

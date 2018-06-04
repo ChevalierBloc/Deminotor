@@ -446,6 +446,11 @@ public class Fenetre extends JFrame {
         }
     }
 
+    public void gagner(){
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.showMessageDialog(null, "Vous avez Gagner votre score est de "+ model.getScore(), "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public void genererErreur(String erreur){
         JOptionPane optionPane = new JOptionPane();
         switch(erreur){
