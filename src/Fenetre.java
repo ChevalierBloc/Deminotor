@@ -458,6 +458,9 @@ public class Fenetre extends JFrame {
             case "nbMines":
                 optionPane.showMessageDialog(null, "saississez un nombre", "Nombre de mine", JOptionPane.ERROR_MESSAGE);
                 break;
+            case "drapeau":
+                optionPane.showMessageDialog(null, "Ils n'y a plus de drapeau a posse", "Nombre de drapeau", JOptionPane.ERROR_MESSAGE);
+                break;
         }
     }
 }

@@ -495,6 +495,9 @@ public class Model {
         }
     }
 
+    public boolean drapeauPosse(){
+        return nbMinesRestant<=0;
+    }
 
     public boolean estGagnant() {
         for (int i = 0 ; i<nbcaseligne;i++){
@@ -507,14 +510,4 @@ public class Model {
         }
         return true ;
     }
-
-//    public boolean estPerdu(){
-//        for (int i = 0 ; i<nbcaseligne;i++){
-//            for (int j = 0 ; j<nbcasecolonne;j++){
-//        if (tabJeu[i][j] == 10){
-//            return false;
-//        }
-//
-//    }
-
 }

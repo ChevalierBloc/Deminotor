@@ -28,13 +28,21 @@ public class ControlButtonJeuGrille implements ActionListener {
                     bouton = i + "/" + j;
                     if(e.getActionCommand().equals(bouton)) {
                         if (model.isMouseRightClic()) {
-                            f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+                            if(model.drapeauPosse()) {
+                                f.genererErreur("drapeau");
+                            }else{
+                                f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+                                model.setNbMinesRestant(model.getNbMinesRestant()-1);
+                                f.actualiser();
+                            }
                         } else {
                             if (model.getTabMines()[i][j] == 1) {
                                 f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                                 f.perdu();
                             } else {
+                                model.setScore(model.getScore()+1);
                                 f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+                                f.actualiser();
                             }
                         }
                     }
