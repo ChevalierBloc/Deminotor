@@ -31,7 +31,7 @@ public class Model {
     private int nbMinesRestant;
     private int x;
     private int y;
-    private boolean isMouseRightClic;
+    private boolean poseDrapeau;
     private boolean music ;
 
     public Model() {}
@@ -122,11 +122,11 @@ public class Model {
         this.score = score;
     }
 
-    public boolean isMouseRightClic() {
-        return isMouseRightClic;
+    public boolean isPoseDrapeau() {
+        return poseDrapeau;
     }
-    public void setMouseRightClic(boolean MouseRightClic) {
-        isMouseRightClic = MouseRightClic;
+    public void setPoseDrapeau(boolean MouseRightClic) {
+        poseDrapeau = MouseRightClic;
     }
 
     public boolean isMusic() {

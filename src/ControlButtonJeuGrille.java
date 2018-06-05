@@ -19,15 +19,15 @@ public class ControlButtonJeuGrille implements ActionListener {
         JButton source = (JButton) e.getSource();
         String bouton;
         if(source == f.getbClique())
-            model.setMouseRightClic(false);
+            model.setPoseDrapeau(false);
         else if(source == f.getbDrapeau())
-            model.setMouseRightClic(true);
+            model.setPoseDrapeau(true);
         else {
             for (int i = 0; i < f.getTabButton().length; i++) {
                 for (int j = 0; j < f.getTabButton()[i].length; j++) {
                     bouton = i + "/" + j;
                     if(e.getActionCommand().equals(bouton)) {
-                        if (model.isMouseRightClic()) {
+                        if (model.isPoseDrapeau()) {
                             if(model.drapeauPosse()) {
                                 f.genererErreur("drapeau");
                             }else{
