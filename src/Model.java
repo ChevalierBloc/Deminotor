@@ -15,9 +15,18 @@ public class Model {
     private boolean estTor;
     private int nbcaseligne;
     private int nbcasecolonne;
+
+    //tableau a 0 si pas de mines, a 1 si une mine
     private int[][] tabMines;
+
+    //tableau contenant le nombre de mines voisines
     private int[][] tabVoisins ;
-    private int[][] tabJeu ;  // 0 = bouton non active, 1 = bouton activer nombre , 2 = bouton activer drapeau
+
+    // 0 = bouton non active,
+    // 1 = bouton active affichage du nombre,
+    // 2 = bouton active affichage drapeau
+    private int[][] tabJeu ;
+
     private int nbMines ;
     private int nbMinesRestant;
     private int x;

@@ -4,5 +4,4 @@ public class Appli {
         Model model = new Model();
         ControlGroup cg = new ControlGroup(model);
     }
-
 }
