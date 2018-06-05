@@ -53,10 +53,20 @@ public class ControlButtonJeuGrille implements ActionListener {
                                 f.perdu();
                             } else {
                                 if(model.getTabJeu()[i][j] == 1){
-
                                 }else {
                                     model.setScore(model.getScore() + 1);
                                     model.getTabJeu()[i][j] = 1;
+                                    /* Début du programme pour éliminer les 0
+                                    if (model.getTabVoisins()[i][j]==0){
+                                        boolean verif = true ;
+                                        int tempx = i , tempy = j , int compt = 0 ;
+                                        while (verif){
+                                            if (model.getTabVoisins()[i][j+1] == 0){
+                                                compt ++ ;
+                                            }
+                                        }
+                                    }
+                                    */
                                     f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                                     f.actualiser();
                                     if(model.estGagnant())

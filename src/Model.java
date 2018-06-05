@@ -135,6 +135,10 @@ public class Model {
         return tor;
     }
 
+    public void setEstTor(boolean estTor){
+        tor = estTor ;
+    }
+
     /*
      * retourne le tableau tabVoisine
      * */
