@@ -25,16 +25,16 @@ public class Fenetre extends JFrame {
     private JButton bRetourJouer;
 
     private JLabel nomDemineurOption;
-    private JCheckBox son;
+    private JCheckBox cbSon;
     private JButton bRetourOption;
 
     private JLabel nomDemineurPerso;
     private JLabel lNbLigne;
-    private JTextField bNbLigne;
+    private JTextField tfNbLigne;
     private JLabel lNbColonne;
-    private JTextField bNbColonne;
+    private JTextField tfNbColonne;
     private JLabel lNbMine;
-    private JTextField bNbMine;
+    private JTextField tfNbMine;
     private JButton bValider;
     private JButton bRetourPerso;
 
@@ -95,13 +95,13 @@ public class Fenetre extends JFrame {
     }
 
     public JTextField getbNbLigne() {
-        return bNbLigne;
+        return tfNbLigne;
     }
     public JTextField getbNbColonne() {
-        return bNbColonne;
+        return tfNbColonne;
     }
     public JTextField getbNbMine() {
-        return bNbMine;
+        return tfNbMine;
     }
     public JButton getbValider() {
         return bValider;
@@ -194,19 +194,19 @@ public class Fenetre extends JFrame {
         bRetourJouer = new JButton("Retour");
 
         nomDemineurOption = new JLabel("Option");
-        son = new JCheckBox("Activer le son");
+        cbSon = new JCheckBox("Activer le son");
         bRetourOption = new JButton("Retour");
 
         nomDemineurPerso = new JLabel("Personnaliser");
         lNbLigne = new JLabel("Nombre de ligne :");
-        bNbLigne = new JTextField();
-        bNbLigne.setPreferredSize(new Dimension(60,25));
+        tfNbLigne = new JTextField();
+        tfNbLigne.setPreferredSize(new Dimension(60,25));
         lNbColonne = new JLabel("Nombre de colonne :");;
-        bNbColonne = new JTextField();
-        bNbColonne.setPreferredSize(new Dimension(60,25));
+        tfNbColonne = new JTextField();
+        tfNbColonne.setPreferredSize(new Dimension(60,25));
         lNbMine = new JLabel("Nombre de mine :");
-        bNbMine = new JTextField();
-        bNbMine.setPreferredSize(new Dimension(60,25));
+        tfNbMine = new JTextField();
+        tfNbMine.setPreferredSize(new Dimension(60,25));
         bValider = new JButton("Valider");
         bRetourPerso = new JButton("Retour");
 
@@ -222,7 +222,7 @@ public class Fenetre extends JFrame {
         bDrapeau.setPreferredSize(new Dimension(20, 20));
         bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
-        bRetourGrille = new JButton("Retour");
+        bRetourGrille = new JButton("Retour Menu");
     }
 
     public void ajouterWidgetVuePrincipal(){
@@ -283,7 +283,7 @@ public class Fenetre extends JFrame {
         gl.setVgap(20);
         panel.setLayout(gl);
         panel.add(panDemineur);
-        panel.add(son);
+        panel.add(cbSon);
         panel.add(bRetourOption);
 
         panGeneral.add(panel);
@@ -337,8 +337,7 @@ public class Fenetre extends JFrame {
         panButton.add(bClique);
         panButton.add(bDrapeau);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JPanel panel = new JPanel(new GridLayout(4,1));
         panel.add(panDemineur);
         panel.add(panGrille);
         panel.add(panButton);
@@ -364,7 +363,7 @@ public class Fenetre extends JFrame {
         panNbLigne2.add(panNbLigne);
 
         panNbLigne.add(lNbLigne);
-        panNbLigne.add(bNbLigne);
+        panNbLigne.add(tfNbLigne);
 
         JPanel panNbColonne = new JPanel();
         JPanel panNbColonne2 = new JPanel();
@@ -372,7 +371,7 @@ public class Fenetre extends JFrame {
         panNbColonne2.add(panNbColonne);
 
         panNbColonne.add(lNbColonne);
-        panNbColonne.add(bNbColonne);
+        panNbColonne.add(tfNbColonne);
 
         JPanel panNbMine = new JPanel();
         JPanel panNbMine2 = new JPanel();
@@ -380,7 +379,7 @@ public class Fenetre extends JFrame {
         panNbMine2.add(panNbMine);
 
         panNbMine.add(lNbMine);
-        panNbMine.add(bNbMine);
+        panNbMine.add(tfNbMine);
 
         JPanel panButon = new JPanel();
         panButon.setLayout(new BoxLayout(panButon,BoxLayout.X_AXIS));
