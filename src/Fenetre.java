@@ -54,6 +54,11 @@ public class Fenetre extends JFrame {
     private JButton bClique;
     private JButton[][] tabButton;
 
+    private JMenuBar jMenuBar;
+    private JMenu JMMOptions;
+    private JMenuItem JMINouvellePartie;
+    private JMenuItem JMIRetourMenuPrincipal;
+
     public Fenetre(Model model) {
         this.model = model;
         initAttribut();
@@ -172,6 +177,10 @@ public class Fenetre extends JFrame {
 
         bRetourGrille.addActionListener(actionListener);
         bNouvellePartie.addActionListener(actionListener);
+
+        JMIRetourMenuPrincipal.addActionListener(actionListener);
+        JMINouvellePartie.addActionListener(actionListener);
+
     }
 
     public void setControlBoutonGrille(ActionListener actionListener){
@@ -230,6 +239,11 @@ public class Fenetre extends JFrame {
         bClique.setPreferredSize(new Dimension(20, 20));
         bRetourGrille = new JButton("Retour Menu");
         bNouvellePartie = new JButton("Nouvelle Partie");
+
+        jMenuBar = new JMenuBar();
+        JMMOptions = new JMenu("Options");
+        JMINouvellePartie = new JMenuItem("Nouvelle Partie");
+        JMIRetourMenuPrincipal = new JMenuItem("Menu Principal");
     }
 
     public void ajouterWidgetVuePrincipal(){
@@ -360,6 +374,12 @@ public class Fenetre extends JFrame {
         panGeneral.add(panel);
 
         setContentPane(panGeneral);
+
+        JMMOptions.add(JMIRetourMenuPrincipal);
+        JMMOptions.add(JMINouvellePartie);
+        jMenuBar.add(JMMOptions);
+
+        setJMenuBar(jMenuBar);
     }
 
 
