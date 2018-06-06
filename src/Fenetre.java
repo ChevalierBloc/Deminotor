@@ -48,6 +48,7 @@ public class Fenetre extends JFrame {
     private JLabel  lScore;
     private JLabel  lMine;
     private JButton bRetourGrille;
+    private JButton bNouvellePartie;
 
     private JButton bDrapeau;
     private JButton bClique;
@@ -135,6 +136,10 @@ public class Fenetre extends JFrame {
         return bRetourGrille;
     }
 
+    public JButton getbNouvellePartie() {
+        return bNouvellePartie;
+    }
+
     public JButton getbDrapeau() {
         return bDrapeau;
     }
@@ -166,6 +171,7 @@ public class Fenetre extends JFrame {
         bRetourDifficulte.addActionListener(actionListener);
 
         bRetourGrille.addActionListener(actionListener);
+        bNouvellePartie.addActionListener(actionListener);
     }
 
     public void setControlBoutonGrille(ActionListener actionListener){
@@ -223,6 +229,7 @@ public class Fenetre extends JFrame {
         bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
         bRetourGrille = new JButton("Retour Menu");
+        bNouvellePartie = new JButton("Nouvelle Partie");
     }
 
     public void ajouterWidgetVuePrincipal(){
@@ -250,6 +257,7 @@ public class Fenetre extends JFrame {
     public void ajouterWidgetVueJouer(){
         JPanel panDemineur = new JPanel();
         GridLayout gl = new GridLayout(1,2);
+
         gl.setHgap(5);
         panDemineur.setLayout(gl);
         panDemineur.add(imageDemineur);
@@ -322,7 +330,7 @@ public class Fenetre extends JFrame {
         for(int i=0; i<tabButton.length; i++){
             for( int j=0; j<tabButton[i].length; j++){
                 tabButton[i][j] = new JButton();
-                tabButton[i][j].setPreferredSize(new Dimension(20,20));
+                tabButton[i][j].setPreferredSize(new Dimension(25,25));
                 tabButton[i][j].setActionCommand(i+"/"+j);
                 panGrille.add(new JPanel().add(tabButton[i][j]));
             }
@@ -337,11 +345,17 @@ public class Fenetre extends JFrame {
         panButton.add(bClique);
         panButton.add(bDrapeau);
 
-        JPanel panel = new JPanel(new GridLayout(4,1));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(panDemineur);
         panel.add(panGrille);
         panel.add(panButton);
-        panel.add(bRetourGrille);
+        JPanel panelTemp = new JPanel();
+        panelTemp.setLayout(new BoxLayout(panelTemp, BoxLayout.X_AXIS));
+        panelTemp.add(bRetourGrille);
+        panelTemp.add(bNouvellePartie);
+
+        panel.add(panelTemp);
 
         panGeneral.add(panel);
 
