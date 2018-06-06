@@ -155,6 +155,14 @@ public class Fenetre extends JFrame {
         return tabButton;
     }
 
+    public JMenuItem getJMINouvellePartie() {
+        return JMINouvellePartie;
+    }
+
+    public JMenuItem getJMIRetourMenuPrincipal() {
+        return JMIRetourMenuPrincipal;
+    }
+
     public void setControlBouton(ActionListener actionListener){
         bJeu.addActionListener(actionListener);
         bOption.addActionListener(actionListener);
