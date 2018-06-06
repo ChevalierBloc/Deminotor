@@ -178,8 +178,7 @@ public class Fenetre extends JFrame {
         bRetourGrille.addActionListener(actionListener);
         bNouvellePartie.addActionListener(actionListener);
 
-        JMIRetourMenuPrincipal.addActionListener(actionListener);
-        JMINouvellePartie.addActionListener(actionListener);
+
 
     }
 
@@ -191,6 +190,11 @@ public class Fenetre extends JFrame {
         }
         bDrapeau.addActionListener(actionListener);
         bClique.addActionListener(actionListener);
+    }
+
+    public void setControlMenu(ActionListener al){
+        JMIRetourMenuPrincipal.addActionListener(al);
+        JMINouvellePartie.addActionListener(al);
     }
 
     public void initAttribut(){

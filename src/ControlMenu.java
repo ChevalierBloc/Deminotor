@@ -8,6 +8,7 @@ public class ControlMenu implements ActionListener {
     public ControlMenu(Model model,Fenetre f) {
         this.f = f;
         this.model = model;
+        f.setControlMenu(this);
     }
 
     public void actionPerformed(ActionEvent e) {
