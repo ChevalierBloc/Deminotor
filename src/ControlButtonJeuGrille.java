@@ -57,7 +57,7 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     model.setScore(model.getScore() + 1);
                                     model.getTabJeu()[i][j] = 1;
                                     if (model.getTabVoisins()[i][j]==0){
-                                        verifVoisins(i,j);
+                                        //verifVoisins(i,j); faut enlever pour tester voisin
                                     }
                                     f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
                                     f.actualiser();
