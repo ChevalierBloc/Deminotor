@@ -15,14 +15,11 @@ public class ControlMenu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JMenuItem source = (JMenuItem) e.getSource();
         if (source == f.getJMINouvellePartie()){
-            model.setDifficulte(model.getDifficulte());
-            model.setNbCaseColonne(model.getNbcasecolonne());
-            model.setNbCaseLigne(model.getNbcaseligne());
-            model.setNbMines(model.getNbMines());
             model.setNbMinesRestant(model.getNbMines());
             model.initTab();
             model.placeMine();
             model.setNbVoisin();
+            model.setScore(0);
             f.changerVue(5);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);

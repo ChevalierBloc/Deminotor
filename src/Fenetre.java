@@ -388,8 +388,8 @@ public class Fenetre extends JFrame {
         setContentPane(panGeneral);
 
         JMMOptions.add(JMIRetourMenuPrincipal);
-        JMMOptions.add(JMINouvellePartie);
         jMenuBar.add(JMMOptions);
+        jMenuBar.add(JMINouvellePartie);
 
         setJMenuBar(jMenuBar);
     }
