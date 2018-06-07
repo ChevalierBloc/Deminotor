@@ -50,7 +50,6 @@ public class Fenetre extends JFrame {
     private JButton bPause;
     private JButton bAide;
 
-    private JButton bDrapeau;
     private JButton bClique;
     private JButton[][] tabButton;
 
@@ -131,12 +130,6 @@ public class Fenetre extends JFrame {
     }
 
 
-    public JLabel getlScore() {
-        return lScore;
-    }
-    public JLabel getlMine() {
-        return lMine;
-    }
     public JButton getbPause() {
         return bPause;
     }
@@ -145,9 +138,6 @@ public class Fenetre extends JFrame {
         return bAide;
     }
 
-    public JButton getbDrapeau() {
-        return bDrapeau;
-    }
     public JButton getbClique() {
         return bClique;
     }
@@ -182,12 +172,6 @@ public class Fenetre extends JFrame {
         bMoyen.addActionListener(actionListener);
         bDiffile.addActionListener(actionListener);
         bRetourDifficulte.addActionListener(actionListener);
-
-        bPause.addActionListener(actionListener);
-        bAide.addActionListener(actionListener);
-
-
-
     }
 
     public void setControlBoutonGrille(ActionListener actionListener){
@@ -196,8 +180,9 @@ public class Fenetre extends JFrame {
                 tabButton[i][j].addActionListener(actionListener);
             }
         }
-        bDrapeau.addActionListener(actionListener);
         bClique.addActionListener(actionListener);
+        bPause.addActionListener(actionListener);
+        bAide.addActionListener(actionListener);
     }
 
     public void setControlMenu(ActionListener al){
@@ -243,11 +228,9 @@ public class Fenetre extends JFrame {
         bDiffile = new JButton("Difficile");
         bRetourDifficulte = new JButton("Retour");
 
-        lScore = new JLabel("Score :"+model.getScore());
-        lMine = new JLabel("Nombres de mines :"+model.getNbMinesRestant());
-        bDrapeau = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
-        bDrapeau.setPreferredSize(new Dimension(20, 20));
-        bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+        lScore = new JLabel("Temps : "+model.getScore() + " secondes");
+        lMine = new JLabel("Nombres de mines : "+model.getNbMinesRestant());
+        bClique = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
         bPause = new JButton("Pause");
         bAide = new JButton("Aide");
@@ -369,7 +352,6 @@ public class Fenetre extends JFrame {
 
         JPanel panButton = new JPanel();
         panButton.add(bClique);
-        panButton.add(bDrapeau);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -475,7 +457,7 @@ public class Fenetre extends JFrame {
     }
 
     public void actualiser(){
-        lScore.setText("Score :"+model.getScore());
+        lScore.setText("Temps : "+model.getScore() + " secondes");
         lMine.setText("Nombres de mines :"+model.getNbMinesRestant());
     }
 
@@ -484,16 +466,31 @@ public class Fenetre extends JFrame {
         perdu.showMessageDialog(null, "Perdu !!!", "Vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
         for (int i = 0 ; i < tabButton.length ; i++){
             for (int j = 0 ; j < tabButton[i].length ; j++){
-                tabButton[i][j].setEnabled(false);
-                tabButton[i][j].setBackground(Color.GRAY);
-                tabButton[i][j].setIcon(null);
+                if(model.getTabMines()[i][j] == 1)
+                    tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+            }
+        }
+    }
+
+    public void pause(){
+        for (int i = 0 ; i < tabButton.length ; i++){
+            for (int j = 0 ; j < tabButton[i].length ; j++){
+                tabButton[i][j].setVisible(false);
+            }
+        }
+    }
+
+    public void reprendre(){
+        for (int i = 0 ; i < tabButton.length ; i++){
+            for (int j = 0 ; j < tabButton[i].length ; j++){
+                tabButton[i][j].setVisible(true);
             }
         }
     }
 
     public void gagner(){
         JOptionPane optionPane = new JOptionPane();
-        optionPane.showMessageDialog(null, "Vous avez Gagner votre score est de "+ model.getScore(), "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+        optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void genererErreur(String erreur){

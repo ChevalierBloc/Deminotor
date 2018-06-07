@@ -8,8 +8,9 @@ public class Time {
     private Model model;
     private Fenetre fenetre;
 
-    public Time(Model model) {
+    public Time(Model model, Fenetre fenetre) {
         this.model = model;
+        this.fenetre = fenetre;
         timer = new Timer(1000, new TraitementTimer());
     }
 
