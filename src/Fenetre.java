@@ -47,8 +47,8 @@ public class Fenetre extends JFrame {
 
     private JLabel  lScore;
     private JLabel  lMine;
-    private JButton bRetourGrille;
-    private JButton bNouvellePartie;
+    private JButton bPause;
+    private JButton bAide;
 
     private JButton bDrapeau;
     private JButton bClique;
@@ -137,12 +137,12 @@ public class Fenetre extends JFrame {
     public JLabel getlMine() {
         return lMine;
     }
-    public JButton getbRetourGrille() {
-        return bRetourGrille;
+    public JButton getbPause() {
+        return bPause;
     }
 
-    public JButton getbNouvellePartie() {
-        return bNouvellePartie;
+    public JButton getbAide() {
+        return bAide;
     }
 
     public JButton getbDrapeau() {
@@ -183,8 +183,8 @@ public class Fenetre extends JFrame {
         bDiffile.addActionListener(actionListener);
         bRetourDifficulte.addActionListener(actionListener);
 
-        bRetourGrille.addActionListener(actionListener);
-        bNouvellePartie.addActionListener(actionListener);
+        bPause.addActionListener(actionListener);
+        bAide.addActionListener(actionListener);
 
 
 
@@ -249,8 +249,8 @@ public class Fenetre extends JFrame {
         bDrapeau.setPreferredSize(new Dimension(20, 20));
         bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
-        bRetourGrille = new JButton("Retour Menu");
-        bNouvellePartie = new JButton("Nouvelle Partie");
+        bPause = new JButton("Pause");
+        bAide = new JButton("Aide");
 
         jMenuBar = new JMenuBar();
         JMMOptions = new JMenu("Options");
@@ -378,8 +378,8 @@ public class Fenetre extends JFrame {
         panel.add(panButton);
         JPanel panelTemp = new JPanel();
         panelTemp.setLayout(new BoxLayout(panelTemp, BoxLayout.X_AXIS));
-        panelTemp.add(bRetourGrille);
-        panelTemp.add(bNouvellePartie);
+        panelTemp.add(bPause);
+        panelTemp.add(bAide);
 
         panel.add(panelTemp);
 

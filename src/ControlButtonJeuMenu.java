@@ -131,7 +131,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             f.changerVue(2);
         }
 
-        else if(source == f.getbRetourGrille()){
+        else if(source == f.getbPause()){
             model.setDifficulte(0);
             f.changerVue(4);
         }
