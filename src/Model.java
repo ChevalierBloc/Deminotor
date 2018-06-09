@@ -17,7 +17,8 @@ public class Model {
 
     // 0 = bouton non active,
     // 1 = bouton active affichage du nombre,
-    // 2 = bouton active affichage drapeau
+    // 2 = bouton active affichage drapeau,
+    // 3 = bouton non active avec aide
     //tableau contenant les information sur la selection d'un bouton
     private int[][] tabJeu ;
 

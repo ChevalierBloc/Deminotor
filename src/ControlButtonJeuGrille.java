@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import static java.lang.Math.random;
+
 public class ControlButtonJeuGrille implements ActionListener {
     Fenetre f;
     Model model;
@@ -48,6 +50,24 @@ public class ControlButtonJeuGrille implements ActionListener {
                 f.getbPause().setText("Reprendre");
             }
         }
+        else if(source == f.getbAide()){
+            ArrayList<Point> listBouton0 = new ArrayList<>();
+            for (int i = 0; i < model.getTabMines().length; i++) {
+                for (int j=0; j<model.getTabMines()[i].length ; j++){
+                    if(model.getTabVoisins()[i][j] == 0 && model.getTabMines()[i][j]==0 && model.getTabJeu()[i][j]==0)
+                        listBouton0.add(new Point(i, j));
+                }
+            }
+            if(listBouton0.size()<=0){
+                f.genererErreur("aide");
+            }
+            else {
+                int max = listBouton0.size() - 1;
+                int random = (int) (random() * listBouton0.size() - 1);
+                f.aide((int) listBouton0.get(random).getX(), (int) listBouton0.get(random).getY());
+                model.getTabJeu()[(int) listBouton0.get(random).getX()][(int) listBouton0.get(random).getY()] = 3;
+            }
+        }
         else {
             for (int i = 0; i < f.getTabButton().length; i++) {
                 for (int j = 0; j < f.getTabButton()[i].length; j++) {
@@ -83,6 +103,8 @@ public class ControlButtonJeuGrille implements ActionListener {
                                 if(model.getTabJeu()[i][j] == 2){
 
                                 }else {
+                                    if(model.getTabJeu()[i][j] == 3)
+                                        f.getTabButton()[i][j].setBackground(null);
                                     model.getTabJeu()[i][j] = 1;
                                     if (model.getTabVoisins()[i][j]==0){
                                         verifVoisins(i,j); //faut enlever pour tester voisin

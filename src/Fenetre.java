@@ -469,6 +469,11 @@ public class Fenetre extends JFrame {
         lMine.setText("Nombres de mines :"+model.getNbMinesRestant());
     }
 
+    public void gagner(){
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public void perdu(){
         JOptionPane perdu = new JOptionPane();
         perdu.showMessageDialog(null, "Perdu !!!", "Vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
@@ -479,6 +484,10 @@ public class Fenetre extends JFrame {
                     tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
             }
         }
+    }
+
+    public void aide(int x, int y){
+        tabButton[x][y].setBackground(Color.red);
     }
 
     public void pause(){
@@ -497,11 +506,6 @@ public class Fenetre extends JFrame {
         }
     }
 
-    public void gagner(){
-        JOptionPane optionPane = new JOptionPane();
-        optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
-    }
-
     public void genererErreur(String erreur){
         JOptionPane optionPane = new JOptionPane();
         switch(erreur){
@@ -516,6 +520,9 @@ public class Fenetre extends JFrame {
                 break;
             case "drapeau":
                 optionPane.showMessageDialog(null, "Ils n'y a plus de drapeau a posse", "Nombre de drapeau", JOptionPane.ERROR_MESSAGE);
+                break;
+            case "aide":
+                optionPane.showMessageDialog(null, "Ils n'y a plus d'aide", "Aide", JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }
