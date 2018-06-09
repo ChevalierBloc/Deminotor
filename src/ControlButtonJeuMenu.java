@@ -33,6 +33,7 @@ public class ControlButtonJeuMenu implements ActionListener {
 
         else if(source == f.getbRetourJouer()){
             f.changerVue(1);
+            f.setSize(700,500);
         }
 
         else if(source == f.getbNorma()){
@@ -79,6 +80,7 @@ public class ControlButtonJeuMenu implements ActionListener {
                     model.setNbVoisin();
                     f.changerVue(5);
                     f.actualiser();
+                    f.pack();
                     new ControlButtonJeuGrille(model, f);
                     f.getTime().start();
                 }
@@ -111,6 +113,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.changerVue(5);
             f.actualiser();
+            f.pack();
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
         }
@@ -126,6 +129,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.changerVue(5);
             f.actualiser();
+            f.pack();
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
         }
@@ -141,6 +145,7 @@ public class ControlButtonJeuMenu implements ActionListener {
 
         else if(source == f.getbRetourOption()){
             f.changerVue(1);
+            f.setSize(700,500);
         }
     }
 

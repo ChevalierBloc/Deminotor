@@ -26,6 +26,7 @@ public class ControlMenu implements ActionListener {
             f.getTime().start();
         }else if (source == f.getJMIRetourMenuPrincipal()) {
             f.changerVue(1);
+            f.setSize(700,500);
         }
     }
 }

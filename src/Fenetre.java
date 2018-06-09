@@ -235,7 +235,7 @@ public class Fenetre extends JFrame {
         bRetourDifficulte = new JButton("Retour");
 
         lScore = new JLabel("Temps : "+model.getScore() + " secondes");
-        lMine = new JLabel("Nombres de mines : "+model.getNbMinesRestant());
+        lMine = new JLabel("Nombres de drapeaux : "+model.getNbMinesRestant());
         bClique = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
         bPause = new JButton("Pause");
@@ -248,6 +248,7 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVuePrincipal(){
+        jMenuBar.setVisible(false);
         JPanel panDemineur = new JPanel();
         GridLayout gl = new GridLayout(1,2);
         gl.setHgap(25);
@@ -380,6 +381,7 @@ public class Fenetre extends JFrame {
         jMenuBar.add(JMINouvellePartie);
 
         setJMenuBar(jMenuBar);
+        jMenuBar.setVisible(true);
     }
 
 
@@ -472,6 +474,7 @@ public class Fenetre extends JFrame {
         perdu.showMessageDialog(null, "Perdu !!!", "Vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
         for (int i = 0 ; i < tabButton.length ; i++){
             for (int j = 0 ; j < tabButton[i].length ; j++){
+                tabButton[i][j].setEnabled(false);
                 if(model.getTabMines()[i][j] == 1)
                     tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
             }
