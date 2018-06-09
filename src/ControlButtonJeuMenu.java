@@ -80,6 +80,7 @@ public class ControlButtonJeuMenu implements ActionListener {
                     f.changerVue(5);
                     f.actualiser();
                     new ControlButtonJeuGrille(model, f);
+                    f.getTime().start();
                 }
             }
         }
@@ -96,6 +97,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             f.changerVue(5);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);
+            f.getTime().start();
         }
 
         else if(source == f.getbMoyen()){
@@ -110,6 +112,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             f.changerVue(5);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);
+            f.getTime().start();
         }
 
         else if(source == f.getbDiffile()){
@@ -124,6 +127,7 @@ public class ControlButtonJeuMenu implements ActionListener {
             f.changerVue(5);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);
+            f.getTime().start();
         }
 
         else if(source == f.getbRetourDifficulte()){

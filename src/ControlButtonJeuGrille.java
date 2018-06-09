@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class ControlButtonJeuGrille implements ActionListener {
     Fenetre f;
     Model model;
-    Time time;
     boolean enPause;
     ArrayList<Point> listVoisinDevoile;
 
@@ -20,8 +19,6 @@ public class ControlButtonJeuGrille implements ActionListener {
         enPause = false;
         listVoisinDevoile = new ArrayList<>();
         f.setControlBoutonGrille(this);
-        time = new Time(model, f);
-        time.start();
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -39,13 +36,13 @@ public class ControlButtonJeuGrille implements ActionListener {
         }
         else if (source == f.getbPause()){
             if(enPause){
-                time.start();
+                f.getTime().start();
                 f.reprendre();
                 enPause = false;
                 f.getbPause().setText("Pause");
             }
             else{
-                time.stop();
+                f.getTime().stop();
                 f.pause();
                 enPause = true;
                 f.getbPause().setText("Reprendre");
@@ -71,14 +68,16 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     model.setNbMinesRestant(model.getNbMinesRestant() - 1);
                                     model.getTabJeu()[i][j] = 2;
                                     f.actualiser();
-                                    if (model.estGagnant())
+                                    if (model.estGagnant()) {
+                                        f.getTime().stop();
                                         f.gagner();
+                                    }
                                 }
                             }
                         } else {
                             if (model.getTabMines()[i][j] == 1) {
                                 f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
-                                time.stop();
+                                f.getTime().stop();
                                 f.perdu();
                             } else {
                                 if(model.getTabJeu()[i][j] == 2){
@@ -90,8 +89,10 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     }
                                     f.getTabButton()[i][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j]].getImage()));
                                     f.actualiser();
-                                    if(model.estGagnant())
+                                    if(model.estGagnant()) {
+                                        f.getTime().stop();
                                         f.gagner();
+                                    }
                                 }
                             }
                         }
@@ -100,6 +101,7 @@ public class ControlButtonJeuGrille implements ActionListener {
             }
         }
     }
+
     private void verifVoisins(int i, int j){
         int x;
         int y;

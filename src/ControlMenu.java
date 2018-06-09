@@ -23,6 +23,7 @@ public class ControlMenu implements ActionListener {
             f.changerVue(5);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);
+            f.getTime().start();
         }else if (source == f.getJMIRetourMenuPrincipal()) {
             f.changerVue(1);
         }

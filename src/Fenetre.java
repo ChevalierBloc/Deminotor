@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class Fenetre extends JFrame {
     private Model model;
+    private Time time;
 
     JPanel panGeneral;
 
@@ -60,6 +61,7 @@ public class Fenetre extends JFrame {
 
     public Fenetre(Model model) {
         this.model = model;
+        time = new Time(model, this);
         initAttribut();
         ajouterWidgetVuePrincipal();
         this.setIconImage(model.getImagesMines().getImage());
@@ -68,6 +70,10 @@ public class Fenetre extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Gestion de la fermeture
+    }
+
+    public Time getTime() {
+        return time;
     }
 
     public JButton getbJeu() {
