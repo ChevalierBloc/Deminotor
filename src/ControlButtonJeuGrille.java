@@ -109,64 +109,48 @@ public class ControlButtonJeuGrille implements ActionListener {
             f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
             if (model.getTabVoisins()[i-1][j] == 0 && model.getTabJeu()[i-1][j] == 0){
                 listVoisinDevoile.add(new Point(i-1, j));
-                model.getTabJeu()[i-1][j]=1;
-                verifVoisins(i-1,j);
             }
             model.getTabJeu()[i-1][j]=1;
 
             f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
             if (model.getTabVoisins()[i-1][j+1] == 0 && model.getTabJeu()[i-1][j+1] == 0){
                 listVoisinDevoile.add(new Point(i-1, j+1));
-                model.getTabJeu()[i-1][j+1]=1;
-                verifVoisins(i-1,j+1);
             }
             model.getTabJeu()[i-1][j+1]=1;
 
             f.getTabButton()[i-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j-1]].getImage()));
             if (model.getTabVoisins()[i-1][j-1] == 0 && model.getTabJeu()[i-1][j-1] == 0){
                 listVoisinDevoile.add(new Point(i-1, j-1));
-                model.getTabJeu()[i-1][j-1]=1;
-                verifVoisins(i-1,j-1);
             }
             model.getTabJeu()[i-1][j-1]=1;
 
             f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
             if (model.getTabVoisins()[i+1][j] == 0 && model.getTabJeu()[i+1][j] == 0){
                 listVoisinDevoile.add(new Point(i+1, j));
-                model.getTabJeu()[i+1][j]=1;
-                verifVoisins(i+1,j);
             }
             model.getTabJeu()[i+1][j]=1;
 
             f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
             if (model.getTabVoisins()[i+1][j+1] == 0 && model.getTabJeu()[i+1][j+1] == 0){
                 listVoisinDevoile.add(new Point(i+1, j+1));
-                model.getTabJeu()[i+1][j+1]=1;
-                verifVoisins(i+1,j+1);
             }
             model.getTabJeu()[i+1][j+1]=1;
 
             f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
             if (model.getTabVoisins()[i+1][j-1] == 0 && model.getTabJeu()[i+1][j-1] == 0){
                 listVoisinDevoile.add(new Point(i+1, j-1));
-                model.getTabJeu()[i+1][j-1]=1;
-                verifVoisins(i+1,j-1);
             }
             model.getTabJeu()[i+1][j-1]=1;
 
             f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
             if (model.getTabVoisins()[i][j-1] == 0 && model.getTabJeu()[i][j-1] == 0){
                 listVoisinDevoile.add(new Point(i, j-1));
-                model.getTabJeu()[i][j-1]=1;
-                verifVoisins(i,j-1);
             }
             model.getTabJeu()[i][j-1]=1;
 
             f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
             if (model.getTabVoisins()[i][j+1] == 0 && model.getTabJeu()[i][j+1] == 0){
                 listVoisinDevoile.add(new Point(i, j+1));
-                model.getTabJeu()[i][j+1]=1;
-                verifVoisins(i,j+1);
             }
             model.getTabJeu()[i][j+1]=1;
         }else if (model.isTor()){
@@ -174,64 +158,48 @@ public class ControlButtonJeuGrille implements ActionListener {
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1,j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1,j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1,j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1,j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i,j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[i][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[i][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(i, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[i][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(i,model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[i][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[i-1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[i-1][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[i-1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[i-1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(i-1,model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[i-1][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[i+1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[i+1][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[i+1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[i+1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(i+1,model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[i+1][model.getNbcasecolonne()-1]=1;
 
@@ -239,425 +207,319 @@ public class ControlButtonJeuGrille implements ActionListener {
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i,j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i,j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1,j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1,j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1,j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][j]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][j] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][j] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, j));
-                    model.getTabJeu()[model.getNbcaseligne()-1][j]=1;
-                    verifVoisins(model.getNbcaseligne()-1,j);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][j]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][j-1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][j-1] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, j-1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][j-1]=1;
-                    verifVoisins(model.getNbcaseligne()-1,j-1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][j-1]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][j+1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][j+1] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, j+1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][j+1]=1;
-                    verifVoisins(model.getNbcaseligne()-1,j+1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][j+1]=1;
 
             } else if (i == model.getNbcaseligne()-1 && j != 0 && j != model.getNbcasecolonne()-1) {
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
-                    model.getTabJeu()[i][j+1]=1;
                     listVoisinDevoile.add(new Point(i, j+1));
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1, j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j - 1] == 0 && model.getTabJeu()[i-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j-1));
-                    model.getTabJeu()[i-1][j-1]=1;
-                    verifVoisins(i-1, j-1);
                 }
                 model.getTabJeu()[i-1][j-1]=1;
 
                 f.getTabButton()[0][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j]].getImage()));
                 if (model.getTabVoisins()[0][j] == 0 && model.getTabJeu()[0][j] == 0) {
                     listVoisinDevoile.add(new Point(0, j));
-                    model.getTabJeu()[0][j]=1;
-                    verifVoisins(0, j);
                 }
                 model.getTabJeu()[0][j]=1;
 
                 f.getTabButton()[0][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j-1]].getImage()));
                 if (model.getTabVoisins()[0][j-1] == 0 && model.getTabJeu()[0][j-1] == 0) {
                     listVoisinDevoile.add(new Point(0, j-1));
-                    model.getTabJeu()[0][j-1]=1;
-                    verifVoisins(0, j-1);
                 }
                 model.getTabJeu()[0][j-1]=1;
 
                 f.getTabButton()[0][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j+1]].getImage()));
                 if (model.getTabVoisins()[0][j+1] == 0 && model.getTabJeu()[0][j+1] == 0) {
                     listVoisinDevoile.add(new Point(0, j+1));
-                    model.getTabJeu()[0][j+1]=1;
-                    verifVoisins(0, j+1);
                 }
                 model.getTabJeu()[0][j+1]=1;
             } else if (j == model.getNbcasecolonne()-1 && i != 0 && i!=model.getNbcaseligne()-1) {
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1, j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
 
                 f.getTabButton()[i+1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][0]].getImage()));
                 if (model.getTabVoisins()[i + 1][0] == 0 && model.getTabJeu()[i+1][0] == 0) {
                     listVoisinDevoile.add(new Point(i+1, 0));
-                    model.getTabJeu()[i+1][0]=1;
-                    verifVoisins(i+1, 0);
                 }
                 model.getTabJeu()[i+1][0]=1;
 
                 f.getTabButton()[i][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][0]].getImage()));
                 if (model.getTabVoisins()[i][0] == 0 && model.getTabJeu()[i][0] == 0) {
                     listVoisinDevoile.add(new Point(i, 0));
-                    model.getTabJeu()[i][0]=1;
-                    verifVoisins(i, 0);
                 }
                 model.getTabJeu()[i][0]=1;
 
                 f.getTabButton()[i-1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][0]].getImage()));
                 if (model.getTabVoisins()[i-1][0] == 0 && model.getTabJeu()[i-1][0] == 0) {
                     listVoisinDevoile.add(new Point(i-1, 0));
-                    model.getTabJeu()[i-1][0]=1;
-                    verifVoisins(i-1, 0);
                 }
                 model.getTabJeu()[i-1][0]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j-1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
             } else if (i == model.getNbcaseligne()-1 && j == model.getNbcasecolonne()-1) {
                 f.getTabButton()[i-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j-1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j - 1] == 0 && model.getTabJeu()[i-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j-1));
-                    model.getTabJeu()[i-1][j-1]=1;
-                    verifVoisins(i-1, j-1);
                 }
                 model.getTabJeu()[i-1][j-1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i-1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][0]].getImage()));
                 if (model.getTabVoisins()[i - 1][0] == 0 && model.getTabJeu()[i-1][0] == 0) {
                     listVoisinDevoile.add(new Point(i-1, 0));
-                    model.getTabJeu()[i-1][0]=1;
-                    verifVoisins(i-1, 0);
                 }
                 model.getTabJeu()[i-1][0]=1;
 
                 f.getTabButton()[i][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][0]].getImage()));
                 if (model.getTabVoisins()[i][0] == 0 && model.getTabJeu()[i][0] == 0) {
                     listVoisinDevoile.add(new Point(i, 0));
-                    model.getTabJeu()[i][0]=1;
-                    verifVoisins(i, 0);
                 }
                 model.getTabJeu()[i][0]=1;
 
                 f.getTabButton()[0][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][0]].getImage()));
                 if (model.getTabVoisins()[0][0] == 0 && model.getTabJeu()[0][0] == 0) {
                     listVoisinDevoile.add(new Point(0, 0));
-                    model.getTabJeu()[0][0]=1;
-                    verifVoisins(0, 0);
                 }
                 model.getTabJeu()[0][0]=1;
 
                 f.getTabButton()[0][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j]].getImage()));
                 if (model.getTabVoisins()[0][j] == 0 && model.getTabJeu()[0][j] == 0) {
                     listVoisinDevoile.add(new Point(0, j));
-                    model.getTabJeu()[0][j]=1;
-                    verifVoisins(0, j);
                 }
                 model.getTabJeu()[0][j]=1;
 
                 f.getTabButton()[0][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j-1]].getImage()));
                 if (model.getTabVoisins()[0][j-1] == 0 && model.getTabJeu()[0][j-1] == 0) {
                     listVoisinDevoile.add(new Point(0, j-1));
-                    model.getTabJeu()[0][j-1]=1;
-                    verifVoisins(0, j-1);
                 }
                 model.getTabJeu()[0][j-1]=1;
             } else if (i == 0 && j == 0) {
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1, j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(model.getNbcaseligne()-1, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][0]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][0] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][0] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, 0));
-                    model.getTabJeu()[model.getNbcaseligne()-1][0]=1;
-                    verifVoisins(model.getNbcaseligne()-1, 0);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][0]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][j+1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][j+1] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, j+1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][j+1]=1;
-                    verifVoisins(model.getNbcaseligne()-1, j+1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][j+1]=1;
 
                 f.getTabButton()[0][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[0][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[0][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(0, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[0][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(0, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[0][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[i+1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[i+1][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[i+1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[i+1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(i+1, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[i+1][model.getNbcasecolonne()-1]=1;
             } else if (i == model.getNbcaseligne()-1 && j == 0) {
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1, j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(model.getNbcaseligne()-1, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[0][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[0][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[0][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(0, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[0][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(0, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[0][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[0][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][0]].getImage()));
                 if (model.getTabVoisins()[0][0] == 0 && model.getTabJeu()[0][0] == 0) {
                     listVoisinDevoile.add(new Point(0, 0));
-                    model.getTabJeu()[0][0]=1;
-                    verifVoisins(0, 0);
                 }
                 model.getTabJeu()[0][0]=1;
 
                 f.getTabButton()[0][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][j+1]].getImage()));
                 if (model.getTabVoisins()[0][j+1] == 0 && model.getTabJeu()[0][j+1] == 0) {
                     listVoisinDevoile.add(new Point(0, j+1));
-                    model.getTabJeu()[0][j+1]=1;
-                    verifVoisins(0, j+1);
                 }
                 model.getTabJeu()[0][j+1]=1;
             } else if (i == 0 && j == model.getNbcasecolonne()-1) {
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1, j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, model.getNbcasecolonne()-1));
-                    model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
-                    verifVoisins(model.getNbcaseligne()-1, model.getNbcasecolonne()-1);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][model.getNbcasecolonne()-1]=1;
 
                 f.getTabButton()[model.getNbcaseligne()-1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[model.getNbcaseligne()-1][0]].getImage()));
                 if (model.getTabVoisins()[model.getNbcaseligne()-1][0] == 0 && model.getTabJeu()[model.getNbcaseligne()-1][0] == 0) {
                     listVoisinDevoile.add(new Point(model.getNbcaseligne()-1, 0));
-                    model.getTabJeu()[model.getNbcaseligne()-1][0]=1;
-                    verifVoisins(model.getNbcaseligne()-1, 0);
                 }
                 model.getTabJeu()[model.getNbcaseligne()-1][0]=1;
 
                 f.getTabButton()[0][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[0][0]].getImage()));
                 if (model.getTabVoisins()[0][0] == 0 && model.getTabJeu()[0][0] == 0) {
                     listVoisinDevoile.add(new Point(0, 0));
-                    model.getTabJeu()[0][0]=1;
-                    verifVoisins(0, 0);
                 }
                 model.getTabJeu()[0][0]=1;
 
                 f.getTabButton()[i+1][0].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][0]].getImage()));
                 if (model.getTabVoisins()[i+1][0] == 0 && model.getTabJeu()[i+1][0] == 0) {
                     listVoisinDevoile.add(new Point(i+1, 0));
-                    model.getTabJeu()[i+1][0]=1;
-                    verifVoisins(i+1, 0);
                 }
                 model.getTabJeu()[i+1][0]=1;
             }
@@ -666,256 +528,192 @@ public class ControlButtonJeuGrille implements ActionListener {
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1, j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1, j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
             } else if (i == 0 && j!=0 && j!=model.getNbcasecolonne()-1) {
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1, j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1, j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
             } else if (i == model.getNbcaseligne()-1 && j!=0 && j!= model.getNbcasecolonne()-1) {
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1, j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j-1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j - 1] == 0 && model.getTabJeu()[i-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j-1));
-                    model.getTabJeu()[i-1][j-1]=1;
-                    verifVoisins(i-1, j-1);
                 }
                 model.getTabJeu()[i-1][j-1]=1;
             } else if (j == model.getNbcasecolonne()-1 && i!=0 && i!=model.getNbcaseligne()-1) {
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
 
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1, j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
 
                 f.getTabButton()[i-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j-1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j - 1] == 0 && model.getTabJeu()[i-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j-1));
-                    model.getTabJeu()[i-1][j-1]=1;
-                    verifVoisins(i-1, j-1);
                 }
                 model.getTabJeu()[i-1][j-1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
             } else if (i == model.getNbcaseligne()-1 && j == model.getNbcasecolonne()-1) {
                 f.getTabButton()[i-1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j-1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j - 1] == 0 && model.getTabJeu()[i-1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j-1));
-                    model.getTabJeu()[i-1][j-1]=1;
-                    verifVoisins(i-1, j-1);
                 }
                 model.getTabJeu()[i-1][j-1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
             } else if (i == 0 && j == 0) {
                 f.getTabButton()[i+1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j+1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j + 1] == 0 && model.getTabJeu()[i+1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j+1));
-                    model.getTabJeu()[i+1][j+1]=1;
-                    verifVoisins(i+1, j+1);
                 }
                 model.getTabJeu()[i+1][j+1]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
             } else if (i == model.getNbcaseligne()-1 && j == 0) {
                 f.getTabButton()[i-1][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j+1]].getImage()));
                 if (model.getTabVoisins()[i - 1][j + 1] == 0 && model.getTabJeu()[i-1][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j+1));
-                    model.getTabJeu()[i-1][j+1]=1;
-                    verifVoisins(i-1, j+1);
                 }
                 model.getTabJeu()[i-1][j+1]=1;
 
                 f.getTabButton()[i-1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i-1][j]].getImage()));
                 if (model.getTabVoisins()[i - 1][j] == 0 && model.getTabJeu()[i-1][j] == 0) {
                     listVoisinDevoile.add(new Point(i-1, j));
-                    model.getTabJeu()[i-1][j]=1;
-                    verifVoisins(i-1, j);
                 }
                 model.getTabJeu()[i-1][j]=1;
 
                 f.getTabButton()[i][j+1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j+1]].getImage()));
                 if (model.getTabVoisins()[i][j + 1] == 0 && model.getTabJeu()[i][j+1] == 0) {
                     listVoisinDevoile.add(new Point(i, j+1));
-                    model.getTabJeu()[i][j+1]=1;
-                    verifVoisins(i, j+1);
                 }
                 model.getTabJeu()[i][j+1]=1;
             } else if (i == 0 && j == model.getNbcasecolonne()-1) {
                 f.getTabButton()[i+1][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j-1]].getImage()));
                 if (model.getTabVoisins()[i + 1][j - 1] == 0 && model.getTabJeu()[i+1][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j-1));
-                    model.getTabJeu()[i+1][j-1]=1;
-                    verifVoisins(i+1, j-1);
                 }
                 model.getTabJeu()[i+1][j-1]=1;
 
                 f.getTabButton()[i][j-1].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i][j-1]].getImage()));
                 if (model.getTabVoisins()[i][j - 1] == 0 && model.getTabJeu()[i][j-1] == 0) {
                     listVoisinDevoile.add(new Point(i, j-1));
-                    model.getTabJeu()[i][j-1]=1;
-                    verifVoisins(i, j-1);
                 }
                 model.getTabJeu()[i][j-1]=1;
 
                 f.getTabButton()[i+1][j].setIcon(new ImageIcon(model.getImageNombres()[model.getTabVoisins()[i+1][j]].getImage()));
                 if (model.getTabVoisins()[i + 1][j] == 0 && model.getTabJeu()[i+1][j] == 0) {
                     listVoisinDevoile.add(new Point(i+1, j));
-                    model.getTabJeu()[i+1][j]=1;
-                    verifVoisins(i+1, j);
                 }
                 model.getTabJeu()[i+1][j]=1;
             }
