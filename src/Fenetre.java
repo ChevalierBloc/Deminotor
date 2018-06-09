@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 public class Fenetre extends JFrame {
     private Model model;
     private Time time;
+    private ActionListener actionListener;
 
     JPanel panGeneral;
 
@@ -181,6 +182,7 @@ public class Fenetre extends JFrame {
     }
 
     public void setControlBoutonGrille(ActionListener actionListener){
+        this.actionListener = actionListener;
         for(int i=0; i<tabButton.length; i++){
             for( int j=0; j<tabButton[i].length; j++){
                 tabButton[i][j].addActionListener(actionListener);
@@ -189,6 +191,17 @@ public class Fenetre extends JFrame {
         bClique.addActionListener(actionListener);
         bPause.addActionListener(actionListener);
         bAide.addActionListener(actionListener);
+    }
+
+    public void suppControlBoutonGrille(){
+        for(int i=0; i<tabButton.length; i++){
+            for( int j=0; j<tabButton[i].length; j++){
+                tabButton[i][j].removeActionListener(actionListener);
+            }
+        }
+        bClique.removeActionListener(actionListener);
+        bPause.removeActionListener(actionListener);
+        bAide.removeActionListener(actionListener);
     }
 
     public void setControlMenu(ActionListener al){
@@ -519,10 +532,10 @@ public class Fenetre extends JFrame {
                 optionPane.showMessageDialog(null, "saississez un nombre", "Nombre de mine", JOptionPane.ERROR_MESSAGE);
                 break;
             case "drapeau":
-                optionPane.showMessageDialog(null, "Ils n'y a plus de drapeau a posse", "Nombre de drapeau", JOptionPane.ERROR_MESSAGE);
+                optionPane.showMessageDialog(null, "Ils n'y a plus de drapeau a posse", "Nombre de drapeau", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "aide":
-                optionPane.showMessageDialog(null, "Ils n'y a plus d'aide", "Aide", JOptionPane.ERROR_MESSAGE);
+                optionPane.showMessageDialog(null, "Ils n'y a plus d'aide", "Aide", JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
     }

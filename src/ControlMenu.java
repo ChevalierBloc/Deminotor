@@ -15,6 +15,7 @@ public class ControlMenu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JMenuItem source = (JMenuItem) e.getSource();
         if (source == f.getJMINouvellePartie()){
+            f.suppControlBoutonGrille();
             model.setNbMinesRestant(model.getNbMines());
             model.initTab();
             model.placeMine();
@@ -25,6 +26,7 @@ public class ControlMenu implements ActionListener {
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
         }else if (source == f.getJMIRetourMenuPrincipal()) {
+            f.suppControlBoutonGrille();
             f.changerVue(1);
             f.setSize(700,500);
         }
