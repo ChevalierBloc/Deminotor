@@ -332,6 +332,7 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVuePrincipal(){
+        panGeneral.setBackground(new Color(255, 197, 84,144));
         jMenuBar.setVisible(false);
         JPanel panDemineur = new JPanel();
         panDemineur.setBackground(new Color(0, 0, 0, 0));
@@ -438,9 +439,8 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueGrille(){
+        panGeneral.setBackground(new Color(255, 197, 84,0));
         JPanel panGrille = new JPanel();
-        panGrille.setBackground(new Color(0, 0, 0,0));
-
         GridLayout g = new GridLayout(model.getNbcaseligne(),model.getNbcasecolonne(),1,1);
         panGrille.setLayout(g);
         tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
