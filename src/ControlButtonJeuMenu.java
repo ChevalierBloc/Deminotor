@@ -80,6 +80,8 @@ public class ControlButtonJeuMenu implements ActionListener {
                     model.setNbVoisin();
                     f.changerVue(5);
                     f.actualiser();
+                    f.getbPause().setEnabled(true);
+                    f.getbAide().setEnabled(true);
                     f.pack();
                     new ControlButtonJeuGrille(model, f);
                     f.getTime().start();
@@ -97,6 +99,8 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.placeMine();
             model.setNbVoisin();
             f.changerVue(5);
+            f.getbPause().setEnabled(true);
+            f.getbAide().setEnabled(true);
             f.actualiser();
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
@@ -113,6 +117,8 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.changerVue(5);
             f.actualiser();
+            f.getbPause().setEnabled(true);
+            f.getbAide().setEnabled(true);
             f.pack();
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
@@ -129,6 +135,8 @@ public class ControlButtonJeuMenu implements ActionListener {
             model.setNbVoisin();
             f.changerVue(5);
             f.actualiser();
+            f.getbPause().setEnabled(true);
+            f.getbAide().setEnabled(true);
             f.pack();
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
@@ -144,12 +152,15 @@ public class ControlButtonJeuMenu implements ActionListener {
         }
 
         else if(source == f.getbRetourOption()){
-            if(f.getCbSon().isSelected())
+            if(f.getCbSon().isSelected()) {
                 model.startMusique();
-            else
+                f.getJMIOptionsSon().setSelected(true);
+            }else {
                 model.stopMusique();
+                f.getJMIOptionsSon().setSelected(false);
+            }
             f.changerVue(1);
-            f.setSize(700,500);
+            f.setSize(700, 500);
         }
     }
 

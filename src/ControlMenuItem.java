@@ -14,9 +14,11 @@ public class ControlMenuItem implements ItemListener {
     public void itemStateChanged(ItemEvent e) {
         if(f.getJMIOptionsSon().isSelected()){
             model.startMusique();
+            f.getCbSon().setSelected(true);
         }
         else{
             model.stopMusique();
+            f.getCbSon().setSelected(false);
         }
     }
 }

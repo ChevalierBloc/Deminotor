@@ -23,10 +23,14 @@ public class ControlMenu implements ActionListener {
             model.setScore(0);
             f.changerVue(5);
             f.actualiser();
+            f.getbPause().setEnabled(true);
+            f.getbAide().setEnabled(true);
             new ControlButtonJeuGrille(model, f);
             f.getTime().start();
         }else if (source == f.getJMIRetourMenuPrincipal()) {
             f.suppControlBoutonGrille();
+            f.getTime().stop();
+            model.setScore(0);
             f.changerVue(1);
             f.setSize(700,500);
         }

@@ -490,12 +490,19 @@ public class Fenetre extends JFrame {
 
     public void actualiser(){
         lScore.setText("Temps : "+model.getScore() + " secondes");
-        lMine.setText("Nombres de mines :"+model.getNbMinesRestant());
+        lMine.setText("Nombres de drapeaux :"+model.getNbMinesRestant());
     }
 
     public void gagner(){
         JOptionPane optionPane = new JOptionPane();
         optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+        for (int i = 0 ; i < tabButton.length ; i++){
+            for (int j = 0 ; j < tabButton[i].length ; j++){
+                tabButton[i][j].setEnabled(false);
+                getbPause().setEnabled(false);
+                getbAide().setEnabled(false);
+            }
+        }
     }
 
     public void perdu(){
@@ -504,6 +511,8 @@ public class Fenetre extends JFrame {
         for (int i = 0 ; i < tabButton.length ; i++){
             for (int j = 0 ; j < tabButton[i].length ; j++){
                 tabButton[i][j].setEnabled(false);
+                getbPause().setEnabled(false);
+                getbAide().setEnabled(false);
                 if(model.getTabMines()[i][j] == 1)
                     tabButton[i][j].setIcon(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
             }
