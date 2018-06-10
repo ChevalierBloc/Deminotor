@@ -193,9 +193,14 @@ public class Fenetre extends JFrame {
         return JMIOptionsSon;
     }
 
+    public JButton getbScores() {
+        return bScores;
+    }
+
     public void setControlBouton(ActionListener actionListener){
         bJeu.addActionListener(actionListener);
         bOption.addActionListener(actionListener);
+        bScores.addActionListener(actionListener);
         bQuitter.addActionListener(actionListener);
 
         bNorma.addActionListener(actionListener);
@@ -282,7 +287,7 @@ public class Fenetre extends JFrame {
 
         lTorf = new JLabel("Tore Facile");
         lTorm = new JLabel("Tore Moyen");
-        lTorf = new JLabel("Tore Difficle");
+        lTord = new JLabel("Tore Difficle");
         ltf1 = new JLabel("1 : " + model.getTabScore()[1][0][0]);
         ltm1 = new JLabel("1 : " + model.getTabScore()[1][1][0]);
         ltd1 = new JLabel("1 : " + model.getTabScore()[1][2][0]);
@@ -344,6 +349,7 @@ public class Fenetre extends JFrame {
         panel.add(panDemineur);
         panel.add(bJeu);
         panel.add(bOption);
+        panel.add(bScores);
         panel.add(bQuitter);
 
         panGeneral.add(panel);
@@ -479,6 +485,64 @@ public class Fenetre extends JFrame {
         jMenuBar.setVisible(true);
     }
 
+    public void ajouterWidgetVueScores(){
+        JPanel pnf = new JPanel();
+        pnf.setLayout(new BoxLayout(pnf, BoxLayout.Y_AXIS));
+        pnf.add(lNormalf);
+        pnf.add(lnf1);
+        pnf.add(lnf2);
+        pnf.add(lnf3);
+
+        JPanel pnm = new JPanel();
+        pnm.setLayout(new BoxLayout(pnm, BoxLayout.Y_AXIS));
+        pnm.add(lNormalm);
+        pnm.add(lnm1);
+        pnm.add(lnm2);
+        pnm.add(lnm3);
+
+        JPanel pnd = new JPanel();
+        pnd.setLayout(new BoxLayout(pnd, BoxLayout.Y_AXIS));
+        pnd.add(lNormald);
+        pnd.add(lnd1);
+        pnd.add(lnd2);
+        pnd.add(lnd3);
+
+        JPanel ptf = new JPanel();
+        ptf.setLayout(new BoxLayout(ptf, BoxLayout.Y_AXIS));
+        ptf.add(lTorf);
+        ptf.add(ltf1);
+        ptf.add(ltf2);
+        ptf.add(ltf3);
+
+        JPanel ptm = new JPanel();
+        ptm.setLayout(new BoxLayout(ptm, BoxLayout.Y_AXIS));
+        ptm.add(lTorm);
+        ptm.add(ltm1);
+        ptm.add(ltm2);
+        ptm.add(ltm3);
+
+        JPanel ptd = new JPanel();
+        ptd.setLayout(new BoxLayout(ptd, BoxLayout.Y_AXIS));
+        ptd.add(lTord);
+        ptd.add(ltd1);
+        ptd.add(ltd2);
+        ptd.add(ltd3);
+
+        JPanel pScore = new JPanel(new GridLayout(3,2, 10, 10));
+        pScore.add(pnf);
+        pScore.add(ptf);
+        pScore.add(pnm);
+        pScore.add(ptm);
+        pScore.add(pnd);
+        pScore.add(ptd);
+
+        JPanel panScore = new JPanel();
+        panScore.add(pScore);
+        panScore.add(bRetourOption);
+
+
+        setContentPane(panScore);
+    }
 
     public void ajouterWidgetVuePerso(){
 
@@ -557,6 +621,9 @@ public class Fenetre extends JFrame {
                 panGeneral.remove(0);
                 ajouterWidgetVuePerso();
                 break;
+            case 7 :
+                panGeneral.remove(0);
+                ajouterWidgetVueScores();
         }
     }
 
@@ -614,57 +681,6 @@ public class Fenetre extends JFrame {
         }
     }
 
-    public void ajouterWidgetVueScores(){
-        JPanel pnf = new JPanel();
-        pnf.setLayout(new BoxLayout(pnf, BoxLayout.Y_AXIS));
-        pnf.add(lNormalf);
-        pnf.add(lnf1);
-        pnf.add(lnf2);
-        pnf.add(lnf3);
-
-        JPanel pnm = new JPanel();
-        pnm.setLayout(new BoxLayout(pnm, BoxLayout.Y_AXIS));
-        pnm.add(lNormalm);
-        pnm.add(lnm1);
-        pnm.add(lnm2);
-        pnm.add(lnm3);
-
-        JPanel pnd = new JPanel();
-        pnd.setLayout(new BoxLayout(pnd, BoxLayout.Y_AXIS));
-        pnd.add(lNormald);
-        pnd.add(lnd1);
-        pnd.add(lnd2);
-        pnd.add(lnd3);
-
-        JPanel ptf = new JPanel();
-        ptf.setLayout(new BoxLayout(ptf, BoxLayout.Y_AXIS));
-        ptf.add(lTorf);
-        ptf.add(ltf1);
-        ptf.add(ltf2);
-        ptf.add(ltf3);
-
-        JPanel ptm = new JPanel();
-        ptm.setLayout(new BoxLayout(ptm, BoxLayout.Y_AXIS));
-        ptm.add(lTorm);
-        ptm.add(ltm1);
-        ptm.add(ltm2);
-        ptm.add(ltm3);
-
-        JPanel ptd = new JPanel();
-        ptd.setLayout(new BoxLayout(ptd, BoxLayout.Y_AXIS));
-        ptd.add(lTord);
-        ptd.add(ltd1);
-        ptd.add(ltd2);
-        ptd.add(ltd3);
-
-        JPanel pScore = new JPanel(new GridLayout(3,2, 10, 10));
-        pScore.add(pnf);
-        pScore.add(ptf);
-        pScore.add(pnm);
-        pScore.add(ptm);
-        pScore.add(pnd);
-        pScore.add(ptd);
-    }
 
     public void reprendre(){
         for (int i = 0 ; i < tabButton.length ; i++){
