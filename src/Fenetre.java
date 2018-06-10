@@ -13,6 +13,7 @@ public class Fenetre extends JFrame {
     private JButton bJeu;
     private JButton bOption;
     private JButton bQuitter;
+    private JButton bScores;
 
     private JLabel imageDemineur;
     private JLabel nomDemineur;
@@ -26,6 +27,34 @@ public class Fenetre extends JFrame {
     private JLabel nomDemineurOption;
     private JCheckBox cbSon;
     private JButton bRetourOption;
+
+    private JLabel lNormalf;
+    private JLabel lNormalm;
+    private JLabel lNormald;
+    private JLabel lnf1;
+    private JLabel lnm1;
+    private JLabel lnd1;
+    private JLabel lnf2;
+    private JLabel lnm2;
+    private JLabel lnd2;
+    private JLabel lnf3;
+    private JLabel lnm3;
+    private JLabel lnd3;
+
+    private JLabel lTorf;
+    private JLabel lTorm;
+    private JLabel lTord;
+    private JLabel ltf1;
+    private JLabel ltm1;
+    private JLabel ltd1;
+    private JLabel ltf2;
+    private JLabel ltm2;
+    private JLabel ltd2;
+    private JLabel ltf3;
+    private JLabel ltm3;
+    private JLabel ltd3;
+
+
 
     private JLabel nomDemineurPerso;
     private JLabel lNbLigne;
@@ -60,7 +89,6 @@ public class Fenetre extends JFrame {
 
     public Fenetre(Model model) {
         this.model = model;
-        afficherScore();
         time = new Time(model, this);
         initAttribut();
         ajouterWidgetVuePrincipal();
@@ -227,6 +255,7 @@ public class Fenetre extends JFrame {
         bJeu = new JButton("Jouer");
         bOption = new JButton("Option");
         bQuitter = new JButton("Quitter");
+        bScores = new JButton("Scores");
 
         nomDemineurJouer = new JLabel("Jouer");
         bNorma = new JButton("Jeu Normal");
@@ -237,6 +266,32 @@ public class Fenetre extends JFrame {
         nomDemineurOption = new JLabel("Option");
         cbSon = new JCheckBox("Activer le son",true);
         bRetourOption = new JButton("Retour");
+
+        lNormalf = new JLabel("Normal Facile");
+        lNormalm = new JLabel("Normal Moyen");
+        lNormald = new JLabel("Normal Difficile");
+        lnf1 = new JLabel("1 : " + model.getTabScore()[0][0][0]);
+        lnm1 = new JLabel("1 : " + model.getTabScore()[0][1][0]);
+        lnd1 = new JLabel("1 : " + model.getTabScore()[0][2][0]);
+        lnf2 = new JLabel("2 : " + model.getTabScore()[0][0][1]);
+        lnm2 = new JLabel("2 : " + model.getTabScore()[0][1][1]);
+        lnd2 = new JLabel("2 : " + model.getTabScore()[0][2][1]);
+        lnf3 = new JLabel("3 : " + model.getTabScore()[0][0][2]);
+        lnm3 = new JLabel("3 : " + model.getTabScore()[0][1][2]);
+        lnd3 = new JLabel("3 : " + model.getTabScore()[0][2][2]);
+
+        lTorf = new JLabel("Tore Facile");
+        lTorm = new JLabel("Tore Moyen");
+        lTorf = new JLabel("Tore Difficle");
+        ltf1 = new JLabel("1 : " + model.getTabScore()[1][0][0]);
+        ltm1 = new JLabel("1 : " + model.getTabScore()[1][1][0]);
+        ltd1 = new JLabel("1 : " + model.getTabScore()[1][2][0]);
+        ltf2 = new JLabel("2 : " + model.getTabScore()[1][0][1]);
+        ltm2 = new JLabel("2 : " + model.getTabScore()[1][1][1]);
+        ltd2 = new JLabel("2 : " + model.getTabScore()[1][2][1]);
+        ltf3 = new JLabel("3 : " + model.getTabScore()[1][0][2]);
+        ltm3 = new JLabel("3 : " + model.getTabScore()[1][1][2]);
+        ltd3 = new JLabel("3 : " + model.getTabScore()[1][2][2]);
 
         nomDemineurPerso = new JLabel("Personnaliser");
         lNbLigne = new JLabel("Nombre de ligne :");
@@ -543,46 +598,56 @@ public class Fenetre extends JFrame {
         }
     }
 
-    public void afficherScore(){
-        System.out.println("Normal Facile");
-        System.out.println("1 : " + model.getTabScore()[0][0][0]);
-        System.out.println("2 : " + model.getTabScore()[0][0][1]);
-        System.out.println("3 : " + model.getTabScore()[0][0][2]);
+    public void ajouterWidgetVueScores(){
+        JPanel pnf = new JPanel();
+        pnf.setLayout(new BoxLayout(pnf, BoxLayout.Y_AXIS));
+        pnf.add(lNormalf);
+        pnf.add(lnf1);
+        pnf.add(lnf2);
+        pnf.add(lnf3);
 
-        System.out.println("===============================================");
+        JPanel pnm = new JPanel();
+        pnm.setLayout(new BoxLayout(pnm, BoxLayout.Y_AXIS));
+        pnm.add(lNormalm);
+        pnm.add(lnm1);
+        pnm.add(lnm2);
+        pnm.add(lnm3);
 
-        System.out.println("Normal Moyen");
-        System.out.println("1 : " + model.getTabScore()[0][1][0]);
-        System.out.println("2 : " + model.getTabScore()[0][1][1]);
-        System.out.println("3 : " + model.getTabScore()[0][1][2]);
+        JPanel pnd = new JPanel();
+        pnd.setLayout(new BoxLayout(pnd, BoxLayout.Y_AXIS));
+        pnd.add(lNormald);
+        pnd.add(lnd1);
+        pnd.add(lnd2);
+        pnd.add(lnd3);
 
-        System.out.println("===============================================");
+        JPanel ptf = new JPanel();
+        ptf.setLayout(new BoxLayout(ptf, BoxLayout.Y_AXIS));
+        ptf.add(lTorf);
+        ptf.add(ltf1);
+        ptf.add(ltf2);
+        ptf.add(ltf3);
 
-        System.out.println("Normal Difficile");
-        System.out.println("1 : " + model.getTabScore()[0][2][0]);
-        System.out.println("2 : " + model.getTabScore()[0][2][1]);
-        System.out.println("3 : " + model.getTabScore()[0][2][2]);
+        JPanel ptm = new JPanel();
+        ptm.setLayout(new BoxLayout(ptm, BoxLayout.Y_AXIS));
+        ptm.add(lTorm);
+        ptm.add(ltm1);
+        ptm.add(ltm2);
+        ptm.add(ltm3);
 
-        System.out.println("===============================================");
+        JPanel ptd = new JPanel();
+        ptd.setLayout(new BoxLayout(ptd, BoxLayout.Y_AXIS));
+        ptd.add(lTord);
+        ptd.add(ltd1);
+        ptd.add(ltd2);
+        ptd.add(ltd3);
 
-        System.out.println("Tor Facile");
-        System.out.println("1 : " + model.getTabScore()[1][0][0]);
-        System.out.println("2 : " + model.getTabScore()[1][0][1]);
-        System.out.println("3 : " + model.getTabScore()[1][0][2]);
-
-        System.out.println("===============================================");
-
-        System.out.println("Tor Moyen");
-        System.out.println("1 : " + model.getTabScore()[1][1][0]);
-        System.out.println("2 : " + model.getTabScore()[1][1][1]);
-        System.out.println("3 : " + model.getTabScore()[1][1][2]);
-
-        System.out.println("===============================================");
-
-        System.out.println("Tor Difficile");
-        System.out.println("1 : " + model.getTabScore()[1][2][0]);
-        System.out.println("2 : " + model.getTabScore()[1][2][1]);
-        System.out.println("3 : " + model.getTabScore()[1][2][2]);
+        JPanel pScore = new JPanel(new GridLayout(3,2, 10, 10));
+        pScore.add(pnf);
+        pScore.add(ptf);
+        pScore.add(pnm);
+        pScore.add(ptm);
+        pScore.add(pnd);
+        pScore.add(ptd);
     }
 
     public void reprendre(){
