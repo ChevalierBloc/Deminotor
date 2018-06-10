@@ -7,7 +7,7 @@ public class Model {
     private Clip clip;
     private final File fileMusique = new File("musique/musiqueFond.wav");
 
-    private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png")};
+    private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png"), new ImageIcon("images/nombre6.png"), new ImageIcon("images/nombre7.png"), new ImageIcon("images/nombre8.png")};
     private final ImageIcon imagesMines = new ImageIcon("images/minotaur.png");
     private final ImageIcon imageDrapeau = new ImageIcon("images/drapeau.png");
     private final ImageIcon imageClique = new ImageIcon("images/clique.png") ;
