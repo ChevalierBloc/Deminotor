@@ -249,7 +249,7 @@ public class Fenetre extends JFrame {
 
     public void initAttribut(){
         panGeneral = new JPanel();
-
+        panGeneral.setBackground(new Color(255, 197, 84,144));
         imageDemineur = new JLabel(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));
         nomDemineur = new JLabel("Déminotor");
         bJeu = new JButton("Jouer");
@@ -329,6 +329,7 @@ public class Fenetre extends JFrame {
     public void ajouterWidgetVuePrincipal(){
         jMenuBar.setVisible(false);
         JPanel panDemineur = new JPanel();
+        panDemineur.setBackground(new Color(0, 0, 0, 0));
         GridLayout gl = new GridLayout(1,2);
         gl.setHgap(25);
         panDemineur.setLayout(gl);
@@ -336,6 +337,7 @@ public class Fenetre extends JFrame {
         panDemineur.add(nomDemineur);
 
         JPanel panel = new JPanel();
+        panel.setBackground(new Color(0, 0, 0,0));
         gl = new GridLayout(4,1);
         gl.setVgap(20);
         panel.setLayout(gl);
@@ -351,6 +353,8 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVueJouer(){
         JPanel panDemineur = new JPanel();
+        panDemineur.setBackground(new Color(0, 0, 0, 0));
+
         GridLayout gl = new GridLayout(1,2);
 
         gl.setHgap(5);
@@ -361,6 +365,7 @@ public class Fenetre extends JFrame {
         JPanel panel = new JPanel();
         gl = new GridLayout(5,1);
         gl.setVgap(20);
+        panel.setBackground(new Color(0, 0, 0,0));
         panel.setLayout(gl);
         panel.add(panDemineur);
         panel.add(bNorma);
@@ -375,6 +380,8 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVueOption(){
         JPanel panDemineur = new JPanel();
+        panDemineur.setBackground(new Color(0, 0, 0, 0));
+
         GridLayout gl = new GridLayout(1,2);
         gl.setHgap(5);
         panDemineur.setLayout(gl);
@@ -382,6 +389,8 @@ public class Fenetre extends JFrame {
         panDemineur.add(nomDemineurOption);
 
         JPanel panel = new JPanel();
+        panel.setBackground(new Color(0, 0, 0,0));
+
         gl = new GridLayout(3,1);
         gl.setVgap(20);
         panel.setLayout(gl);
@@ -396,6 +405,8 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVueDifficulte(){
         JPanel panDemineur = new JPanel();
+        panDemineur.setBackground(new Color(0, 0, 0, 0));
+
         GridLayout gl = new GridLayout(1,2);
         gl.setHgap(25);
         panDemineur.setLayout(gl);
@@ -403,6 +414,8 @@ public class Fenetre extends JFrame {
         panDemineur.add(nomDemineurDifficulte);
 
         JPanel panel = new JPanel();
+        panel.setBackground(new Color(0, 0, 0,0));
+
         gl = new GridLayout(5,1);
         gl.setVgap(20);
         panel.setLayout(gl);
@@ -419,6 +432,8 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVueGrille(){
         JPanel panGrille = new JPanel();
+        panGrille.setBackground(new Color(0, 0, 0,0));
+
         GridLayout g = new GridLayout(model.getNbcaseligne(),model.getNbcasecolonne(),1,1);
         panGrille.setLayout(g);
         tabButton = new JButton[model.getNbcaseligne()][model.getNbcasecolonne()];
@@ -468,6 +483,7 @@ public class Fenetre extends JFrame {
     public void ajouterWidgetVuePerso(){
 
         JPanel panDemineur = new JPanel();
+        panDemineur.setBackground(new Color(0, 0, 0, 0));
         panDemineur.setLayout(new BoxLayout(panDemineur, BoxLayout.X_AXIS));
 
         panDemineur.add(imageDemineur);
