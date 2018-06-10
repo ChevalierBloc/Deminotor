@@ -27,6 +27,11 @@ public class ControlButtonJeuMenu implements ActionListener {
             f.changerVue(3);
         }
 
+        else if (source == f.getbScores()){
+            f.changerVue(7);
+            f.setSize(700,500);
+        }
+
         else if (source == f.getbQuitter()) {
             System.exit(0);
         }
