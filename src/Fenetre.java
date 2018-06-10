@@ -343,7 +343,7 @@ public class Fenetre extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setBackground(new Color(0, 0, 0,0));
-        gl = new GridLayout(4,1);
+        gl = new GridLayout(5,1);
         gl.setVgap(20);
         panel.setLayout(gl);
         panel.add(panDemineur);
@@ -389,6 +389,7 @@ public class Fenetre extends JFrame {
         panDemineur.setBackground(new Color(0, 0, 0, 0));
 
         GridLayout gl = new GridLayout(1,2);
+
         gl.setHgap(5);
         panDemineur.setLayout(gl);
         panDemineur.add(imageDemineur);
@@ -422,7 +423,7 @@ public class Fenetre extends JFrame {
         JPanel panel = new JPanel();
         panel.setBackground(new Color(0, 0, 0,0));
 
-        gl = new GridLayout(5,1);
+        gl = new GridLayout(6,1);
         gl.setVgap(20);
         panel.setLayout(gl);
         panel.add(panDemineur);
@@ -487,6 +488,7 @@ public class Fenetre extends JFrame {
 
     public void ajouterWidgetVueScores(){
         JPanel pnf = new JPanel();
+        pnf.setBackground(new Color(0, 0, 0,0));
         pnf.setLayout(new BoxLayout(pnf, BoxLayout.Y_AXIS));
         pnf.add(lNormalf);
         pnf.add(lnf1);
@@ -494,6 +496,7 @@ public class Fenetre extends JFrame {
         pnf.add(lnf3);
 
         JPanel pnm = new JPanel();
+        pnm.setBackground(new Color(0, 0, 0,0));
         pnm.setLayout(new BoxLayout(pnm, BoxLayout.Y_AXIS));
         pnm.add(lNormalm);
         pnm.add(lnm1);
@@ -501,6 +504,7 @@ public class Fenetre extends JFrame {
         pnm.add(lnm3);
 
         JPanel pnd = new JPanel();
+        pnd.setBackground(new Color(0, 0, 0,0));
         pnd.setLayout(new BoxLayout(pnd, BoxLayout.Y_AXIS));
         pnd.add(lNormald);
         pnd.add(lnd1);
@@ -508,6 +512,7 @@ public class Fenetre extends JFrame {
         pnd.add(lnd3);
 
         JPanel ptf = new JPanel();
+        ptf.setBackground(new Color(0, 0, 0,0));
         ptf.setLayout(new BoxLayout(ptf, BoxLayout.Y_AXIS));
         ptf.add(lTorf);
         ptf.add(ltf1);
@@ -515,6 +520,7 @@ public class Fenetre extends JFrame {
         ptf.add(ltf3);
 
         JPanel ptm = new JPanel();
+        ptm.setBackground(new Color(0, 0, 0,0));
         ptm.setLayout(new BoxLayout(ptm, BoxLayout.Y_AXIS));
         ptm.add(lTorm);
         ptm.add(ltm1);
@@ -522,6 +528,7 @@ public class Fenetre extends JFrame {
         ptm.add(ltm3);
 
         JPanel ptd = new JPanel();
+        ptd.setBackground(new Color(0, 0, 0,0));
         ptd.setLayout(new BoxLayout(ptd, BoxLayout.Y_AXIS));
         ptd.add(lTord);
         ptd.add(ltd1);
@@ -529,6 +536,7 @@ public class Fenetre extends JFrame {
         ptd.add(ltd3);
 
         JPanel pScore = new JPanel(new GridLayout(3,2, 10, 10));
+        pScore.setBackground(new Color(0, 0, 0,0));
         pScore.add(pnf);
         pScore.add(ptf);
         pScore.add(pnm);
@@ -537,11 +545,12 @@ public class Fenetre extends JFrame {
         pScore.add(ptd);
 
         JPanel panScore = new JPanel();
+        panScore.setBackground(new Color(0, 0, 0,0));
         panScore.add(pScore);
         panScore.add(bRetourOption);
+        panGeneral.add(panScore);
 
-
-        setContentPane(panScore);
+        setContentPane(panGeneral);
     }
 
     public void ajouterWidgetVuePerso(){
@@ -554,7 +563,11 @@ public class Fenetre extends JFrame {
         panDemineur.add(nomDemineurPerso);
 
         JPanel panNbLigne = new JPanel();
+        panNbLigne.setBackground(new Color(0, 0, 0, 0));
+
         JPanel panNbLigne2 = new JPanel();
+        panNbLigne2.setBackground(new Color(0, 0, 0, 0));
+
         panNbLigne.setLayout(new BoxLayout(panNbLigne, BoxLayout.X_AXIS));
         panNbLigne2.add(panNbLigne);
 
@@ -562,15 +575,24 @@ public class Fenetre extends JFrame {
         panNbLigne.add(tfNbLigne);
 
         JPanel panNbColonne = new JPanel();
+        panNbColonne.setBackground(new Color(0, 0, 0, 0));
+
         JPanel panNbColonne2 = new JPanel();
+        panNbColonne2.setBackground(new Color(0, 0, 0, 0));
+
         panNbColonne.setLayout(new BoxLayout(panNbColonne, BoxLayout.X_AXIS));
+
         panNbColonne2.add(panNbColonne);
 
         panNbColonne.add(lNbColonne);
         panNbColonne.add(tfNbColonne);
 
         JPanel panNbMine = new JPanel();
+        panNbMine.setBackground(new Color(0, 0, 0, 0));
+
         JPanel panNbMine2 = new JPanel();
+        panNbMine2.setBackground(new Color(0, 0, 0, 0));
+
         panNbMine.setLayout(new BoxLayout(panNbMine, BoxLayout.X_AXIS));
         panNbMine2.add(panNbMine);
 
@@ -578,11 +600,14 @@ public class Fenetre extends JFrame {
         panNbMine.add(tfNbMine);
 
         JPanel panButon = new JPanel();
+        panButon.setBackground(new Color(0, 0, 0, 0));
+
         panButon.setLayout(new BoxLayout(panButon,BoxLayout.X_AXIS));
         panButon.add(bValider);
         panButon.add(bRetourPerso);
 
         JPanel panel = new JPanel(new GridLayout(6,1));
+        panel.setBackground(new Color(0, 0, 0, 0));
 
         panel.add(panDemineur);
         panel.add(panNbLigne2);
