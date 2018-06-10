@@ -113,6 +113,7 @@ public class ControlButtonJeuGrille implements ActionListener {
                                     f.actualiser();
                                     if(model.estGagnant()) {
                                         f.getTime().stop();
+                                        model.actualiserTab();
                                         f.gagner();
                                     }
                                 }

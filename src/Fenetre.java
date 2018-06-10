@@ -60,6 +60,7 @@ public class Fenetre extends JFrame {
 
     public Fenetre(Model model) {
         this.model = model;
+        afficherScore();
         time = new Time(model, this);
         initAttribut();
         ajouterWidgetVuePrincipal();
@@ -495,7 +496,18 @@ public class Fenetre extends JFrame {
 
     public void gagner(){
         JOptionPane optionPane = new JOptionPane();
-        optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+        if( model.isTor()){
+            if(model.getScore()< model.getTabScore()[1][model.getDifficulte()-1][0]){
+                optionPane.showMessageDialog(null, "Vous avez Gagner avec un nouveau temps qui est de "+ model.getScore() + " secondes", "Nouveau Record", JOptionPane.INFORMATION_MESSAGE);
+            }
+            optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            if(model.getScore()< model.getTabScore()[0][model.getDifficulte()-1][0]){
+                optionPane.showMessageDialog(null, "Vous avez Gagner avec un nouveau temps qui est de "+ model.getScore() + " secondes", "Nouveau Record", JOptionPane.INFORMATION_MESSAGE);
+            }
+            optionPane.showMessageDialog(null, "Vous avez Gagner votre temps est de "+ model.getScore() + " secondes", "Victoire !!!!!", JOptionPane.INFORMATION_MESSAGE);
+        }
         for (int i = 0 ; i < tabButton.length ; i++){
             for (int j = 0 ; j < tabButton[i].length ; j++){
                 tabButton[i][j].setEnabled(false);
@@ -529,6 +541,48 @@ public class Fenetre extends JFrame {
                 tabButton[i][j].setVisible(false);
             }
         }
+    }
+
+    public void afficherScore(){
+        System.out.println("Normal Facile");
+        System.out.println("1 : " + model.getTabScore()[0][0][0]);
+        System.out.println("2 : " + model.getTabScore()[0][0][1]);
+        System.out.println("3 : " + model.getTabScore()[0][0][2]);
+
+        System.out.println("===============================================");
+
+        System.out.println("Normal Moyen");
+        System.out.println("1 : " + model.getTabScore()[0][1][0]);
+        System.out.println("2 : " + model.getTabScore()[0][1][1]);
+        System.out.println("3 : " + model.getTabScore()[0][1][2]);
+
+        System.out.println("===============================================");
+
+        System.out.println("Normal Difficile");
+        System.out.println("1 : " + model.getTabScore()[0][2][0]);
+        System.out.println("2 : " + model.getTabScore()[0][2][1]);
+        System.out.println("3 : " + model.getTabScore()[0][2][2]);
+
+        System.out.println("===============================================");
+
+        System.out.println("Tor Facile");
+        System.out.println("1 : " + model.getTabScore()[1][0][0]);
+        System.out.println("2 : " + model.getTabScore()[1][0][1]);
+        System.out.println("3 : " + model.getTabScore()[1][0][2]);
+
+        System.out.println("===============================================");
+
+        System.out.println("Tor Moyen");
+        System.out.println("1 : " + model.getTabScore()[1][1][0]);
+        System.out.println("2 : " + model.getTabScore()[1][1][1]);
+        System.out.println("3 : " + model.getTabScore()[1][1][2]);
+
+        System.out.println("===============================================");
+
+        System.out.println("Tor Difficile");
+        System.out.println("1 : " + model.getTabScore()[1][2][0]);
+        System.out.println("2 : " + model.getTabScore()[1][2][1]);
+        System.out.println("3 : " + model.getTabScore()[1][2][2]);
     }
 
     public void reprendre(){

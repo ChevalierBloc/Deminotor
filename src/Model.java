@@ -1,11 +1,12 @@
 import javax.sound.sampled.*;
 import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class Model {
     private Clip clip;
     private final File fileMusique = new File("musique/musiqueFond.wav");
+
+    private int[][][] tabScore;
 
     private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png"), new ImageIcon("images/nombre6.png"), new ImageIcon("images/nombre7.png"), new ImageIcon("images/nombre8.png")};
     private final ImageIcon imagesMines = new ImageIcon("images/minotaur.png");
@@ -64,6 +65,8 @@ public class Model {
     private boolean tor;
 
     public Model() {
+        tabScore = new int[2][3][3]; // 2 : tor/Normal, 3: Difficulte et 3: les 3 meilleurs temps
+        setTabScore();
         initMusique();
         startMusique();
     }
@@ -91,15 +94,19 @@ public class Model {
         return fileMusique;
     }
 
+    public int[][][] getTabScore() {
+        return tabScore;
+    }
+
     /*
-    * retourne le tableau tabMines
-    **/
+     * retourne le tableau tabMines
+     **/
     public int[][] getTabMines() {
         return tabMines;
     }
     /*
-    * retourne l'indice x
-    * */
+     * retourne l'indice x
+     * */
     public int getX() {
         return x;
     }
@@ -690,5 +697,294 @@ public class Model {
             }
         }
         return true ;
+    }
+
+    private void setTabScore(){
+        setTabScoreNormal();
+        setTabScoreTor();
+    }
+
+    private void setTabScoreNormal(){
+        BufferedReader br;
+        String nombre;
+        int cptIndice = 0;
+
+        try {
+            br = new BufferedReader(new FileReader("Score/Normal/ScoreFacile.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[0][0][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        cptIndice = 0;
+        try {
+            br = new BufferedReader(new FileReader("Score/Normal/ScoreMoyen.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[0][1][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        cptIndice = 0;
+        try {
+            br = new BufferedReader(new FileReader("Score/Normal/ScoreDifficile.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[0][2][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setTabScoreTor(){
+        BufferedReader br;
+        String nombre;
+        int cptIndice = 0;
+
+        try {
+            br = new BufferedReader(new FileReader("Score/Tor/ScoreFacile.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[1][0][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        cptIndice = 0;
+        try {
+            br = new BufferedReader(new FileReader("Score/Tor/ScoreMoyen.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[1][1][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        cptIndice = 0;
+        try {
+            br = new BufferedReader(new FileReader("Score/Tor/ScoreDifficile.txt"));
+            while ((nombre = br.readLine() ) != null && cptIndice< 3){
+                tabScore[1][2][cptIndice] = Integer.parseInt(nombre);
+                cptIndice++;
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actualiserTab(){
+        switch(difficulte){
+            case 1:
+                actualiserTabScoreFacile();
+                break;
+            case 2:
+                actualiserTabScoreMoyen();
+                break;
+            case 3:
+                actualiserTabScoreDifficile();
+                break;
+        }
+        actualiserFichier();
+    }
+
+    private void actualiserTabScoreFacile(){
+        if(tor){
+            if( score < tabScore[1][0][0]){
+                int tmp = tabScore[1][0][0];
+                int tmp2 = tabScore[1][0][1];
+                tabScore[1][0][0] = score;
+                tabScore[1][0][1] = tmp;
+                tabScore[1][0][2] = tmp2;
+            }
+            else if ( score > tabScore[1][0][0] && score < tabScore[1][0][1] ){
+                int tmp = tabScore[1][0][1];
+                tabScore[1][0][1] = score;
+                tabScore[1][0][2] = tmp;
+            }
+            else if ( score > tabScore[1][0][1] && score < tabScore[1][0][2] ){
+                tabScore[1][0][2] = score;
+            }
+        }else{
+            if( score < tabScore[0][0][0]){
+                int tmp = tabScore[0][0][0];
+                int tmp2 = tabScore[0][0][1];
+                tabScore[0][0][0] = score;
+                tabScore[0][0][1] = tmp;
+                tabScore[0][0][2] = tmp2;
+            }
+            else if ( score > tabScore[0][0][0] && score < tabScore[0][0][1] ){
+                int tmp = tabScore[0][0][1];
+                tabScore[0][0][1] = score;
+                tabScore[0][0][2] = tmp;
+            }
+            else if ( score > tabScore[0][0][1] && score < tabScore[0][0][2] ){
+                tabScore[0][0][2] = score;
+            }
+        }
+    }
+
+    private void actualiserTabScoreMoyen(){
+        if(tor){
+            if( score < tabScore[1][1][0]){
+                int tmp = tabScore[1][1][0];
+                int tmp2 = tabScore[1][1][1];
+                tabScore[1][1][0] = score;
+                tabScore[1][1][1] = tmp;
+                tabScore[1][1][2] = tmp2;
+            }
+            else if ( score > tabScore[1][1][0] && score < tabScore[1][1][1] ){
+                int tmp = tabScore[1][1][1];
+                tabScore[1][1][1] = score;
+                tabScore[1][1][2] = tmp;
+            }
+            else if ( score > tabScore[1][1][1] && score < tabScore[1][1][2] ){
+                tabScore[1][1][2] = score;
+            }
+        }else{
+            if( score < tabScore[0][1][0]){
+                int tmp = tabScore[0][1][0];
+                int tmp2 = tabScore[0][1][1];
+                tabScore[0][1][0] = score;
+                tabScore[0][1][1] = tmp;
+                tabScore[0][1][2] = tmp2;
+            }
+            else if ( score > tabScore[0][1][0] && score < tabScore[0][1][1] ){
+                int tmp = tabScore[0][1][1];
+                tabScore[0][1][1] = score;
+                tabScore[0][1][2] = tmp;
+            }
+            else if ( score > tabScore[0][1][1] && score < tabScore[0][1][2] ){
+                tabScore[0][1][2] = score;
+            }
+        }
+    }
+
+    private void actualiserTabScoreDifficile(){
+        if(tor){
+            if( score < tabScore[1][2][0]){
+                int tmp = tabScore[1][2][0];
+                int tmp2 = tabScore[1][2][1];
+                tabScore[1][2][0] = score;
+                tabScore[1][2][1] = tmp;
+                tabScore[1][2][2] = tmp2;
+            }
+            else if ( score > tabScore[1][2][0] && score < tabScore[1][2][1] ){
+                int tmp = tabScore[1][2][1];
+                tabScore[1][2][1] = score;
+                tabScore[1][2][2] = tmp;
+            }
+            else if ( score > tabScore[1][2][1] && score < tabScore[1][2][2] ){
+                tabScore[1][2][2] = score;
+            }
+        }else{
+            if( score < tabScore[0][2][0]){
+                int tmp = tabScore[0][2][0];
+                int tmp2 = tabScore[0][2][1];
+                tabScore[0][2][0] = score;
+                tabScore[0][2][1] = tmp;
+                tabScore[0][2][2] = tmp2;
+            }
+            else if ( score > tabScore[0][2][0] && score < tabScore[0][2][1] ){
+                int tmp = tabScore[0][2][1];
+                tabScore[0][2][1] = score;
+                tabScore[0][2][2] = tmp;
+            }
+            else if ( score > tabScore[0][2][1] && score < tabScore[0][2][2] ){
+                tabScore[0][2][2] = score;
+            }
+        }
+    }
+
+    private void actualiserFichier(){
+        actualiserFichierNormal();
+        actualiserFichierTor();
+    }
+
+    private void actualiserFichierTor(){
+        BufferedWriter bw;
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Tor/ScoreFacile.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[1][0][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Tor/ScoreMoyen.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[1][1][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Tor/ScoreDifficile.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[1][2][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualiserFichierNormal() {
+        BufferedWriter bw;
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Normal/ScoreFacile.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[0][0][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Normal/ScoreMoyen.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[0][1][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw = new BufferedWriter(new FileWriter("Score/Normal/ScoreDifficile.txt"));
+            for(int i=0; i<3; i++){
+                bw.write(String.valueOf(tabScore[0][2][i]));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
