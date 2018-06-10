@@ -439,7 +439,7 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVueGrille(){
-        panGeneral.setBackground(new Color(255, 197, 84,0));
+        panGeneral = new JPanel();
         JPanel panGrille = new JPanel();
         GridLayout g = new GridLayout(model.getNbcaseligne(),model.getNbcasecolonne(),1,1);
         panGrille.setLayout(g);
@@ -554,7 +554,7 @@ public class Fenetre extends JFrame {
     }
 
     public void ajouterWidgetVuePerso(){
-
+        panGeneral.setBackground(new Color(255, 197, 84,0));
         JPanel panDemineur = new JPanel();
         panDemineur.setBackground(new Color(0, 0, 0, 0));
         panDemineur.setLayout(new BoxLayout(panDemineur, BoxLayout.X_AXIS));
