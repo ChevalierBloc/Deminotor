@@ -29,11 +29,11 @@ public class ControlButtonJeuGrille implements ActionListener {
         if(source == f.getbClique()){
             if(model.isPoseDrapeau()){
                 model.setPoseDrapeau(false);
-                f.getbClique().setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+                f.getbClique().setIcon(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
             }
             else{
                 model.setPoseDrapeau(true);
-                f.getbClique().setIcon(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+                f.getbClique().setIcon(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
             }
         }
         else if (source == f.getbPause()){

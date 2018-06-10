@@ -56,7 +56,7 @@ public class Fenetre extends JFrame {
     private JMenu JMMOptions;
     private JMenuItem JMINouvellePartie;
     private JMenuItem JMIRetourMenuPrincipal;
-    private JMenuItem JMIMenuOptions ;
+    private JCheckBoxMenuItem JMIOptionsSon ;
 
     public Fenetre(Model model) {
         this.model = model;
@@ -160,8 +160,8 @@ public class Fenetre extends JFrame {
     public JMenuItem getJMIRetourMenuPrincipal() {
         return JMIRetourMenuPrincipal;
     }
-    public JMenuItem getJMIMenuOptions() {
-        return JMIMenuOptions;
+    public JMenuItem getJMIOptionsSon() {
+        return JMIOptionsSon;
     }
 
     public void setControlBouton(ActionListener actionListener){
@@ -183,6 +183,10 @@ public class Fenetre extends JFrame {
         bMoyen.addActionListener(actionListener);
         bDiffile.addActionListener(actionListener);
         bRetourDifficulte.addActionListener(actionListener);
+    }
+
+    public void setControlMenuItem(ItemListener itemListener){
+        JMIOptionsSon.addItemListener(itemListener);
     }
 
     public void setControlBoutonGrille(ActionListener actionListener){
@@ -211,7 +215,7 @@ public class Fenetre extends JFrame {
     public void setControlMenu(ActionListener al){
         JMIRetourMenuPrincipal.addActionListener(al);
         JMINouvellePartie.addActionListener(al);
-        JMIMenuOptions.addActionListener(al);
+        JMIOptionsSon.addActionListener(al);
     }
 
     public void initAttribut(){
@@ -254,7 +258,7 @@ public class Fenetre extends JFrame {
 
         lScore = new JLabel("Temps : "+model.getScore() + " secondes");
         lMine = new JLabel("Nombres de drapeaux : "+model.getNbMinesRestant());
-        bClique = new JButton(new ImageIcon(model.getImageDrapeau().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
+        bClique = new JButton(new ImageIcon(model.getImageClique().getImage().getScaledInstance(20, 20, BufferedImage.SCALE_SMOOTH)));
         bClique.setPreferredSize(new Dimension(20, 20));
         bPause = new JButton("Pause");
         bAide = new JButton("Aide");
@@ -263,7 +267,7 @@ public class Fenetre extends JFrame {
         JMMOptions = new JMenu("Options");
         JMINouvellePartie = new JMenuItem("Nouvelle Partie");
         JMIRetourMenuPrincipal = new JMenuItem("Menu Principal");
-        JMIMenuOptions = new JMenuItem("Option Jeu");
+        JMIOptionsSon = new JCheckBoxMenuItem("Son activé", true);
     }
 
     public void ajouterWidgetVuePrincipal(){
@@ -396,7 +400,7 @@ public class Fenetre extends JFrame {
         setContentPane(panGeneral);
 
         JMMOptions.add(JMIRetourMenuPrincipal);
-        JMMOptions.add(JMIMenuOptions);
+        JMMOptions.add(JMIOptionsSon);
         jMenuBar.add(JMMOptions);
         jMenuBar.add(JMINouvellePartie);
 
