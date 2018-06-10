@@ -144,6 +144,10 @@ public class ControlButtonJeuMenu implements ActionListener {
         }
 
         else if(source == f.getbRetourOption()){
+            if(f.getCbSon().isSelected())
+                model.startMusique();
+            else
+                model.stopMusique();
             f.changerVue(1);
             f.setSize(700,500);
         }

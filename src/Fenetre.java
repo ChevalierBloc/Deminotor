@@ -1,16 +1,9 @@
 import javax.swing.*;
-import javafx.scene.media.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.net.URL;
-
-import static java.applet.Applet.newAudioClip;
 
 public class Fenetre extends JFrame {
-    //private URL musiqueFond;
-
-
     private Model model;
     private Time time;
     private ActionListener actionListener;
@@ -105,6 +98,9 @@ public class Fenetre extends JFrame {
         return bRetourJouer;
     }
 
+    public JCheckBox getCbSon() {
+        return cbSon;
+    }
 
     public JButton getbRetourOption() {
         return bRetourOption;
@@ -214,19 +210,6 @@ public class Fenetre extends JFrame {
     }
 
     public void initAttribut(){
-        /* Pour musique quand fenetre ouverte
-        musiqueFond = Fenetre.class.getResource("../musique/musiqueFond.wav");
-        AudioClip musique = new AudioClip();
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-                System.out.println();
-                musique.play();
-            }
-        });
-
-       */
-
         panGeneral = new JPanel();
 
         imageDemineur = new JLabel(new ImageIcon(model.getImagesMines().getImage().getScaledInstance(50, 50, BufferedImage.SCALE_SMOOTH)));

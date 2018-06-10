@@ -1,6 +1,12 @@
+import javax.sound.sampled.*;
 import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Model {
+    private Clip clip;
+    private final File fileMusique = new File("musique/musiqueFond.wav");
+
     private final ImageIcon[] imageNombres = {new ImageIcon("images/nombre0.png"), new ImageIcon("images/nombre1.png"), new ImageIcon("images/nombre2.png"), new ImageIcon("images/nombre3.png"), new ImageIcon("images/nombre4.png"), new ImageIcon("images/nombre5.png")};
     private final ImageIcon imagesMines = new ImageIcon("images/minotaur.png");
     private final ImageIcon imageDrapeau = new ImageIcon("images/drapeau.png");
@@ -57,7 +63,10 @@ public class Model {
     //booleen permettant de savoir si on est en mode tor ou non
     private boolean tor;
 
-    public Model() {}
+    public Model() {
+        initMusique();
+        startMusique();
+    }
 
     public ImageIcon[] getImageNombres() {
         return imageNombres;
@@ -73,6 +82,14 @@ public class Model {
     }
 
     // GETTERS
+
+    public Clip getClip() {
+        return clip;
+    }
+
+    public File getFileMusique() {
+        return fileMusique;
+    }
 
     /*
     * retourne le tableau tabMines
@@ -267,6 +284,28 @@ public class Model {
     }
 
     //FIN DES SETTERS
+
+    private void initMusique(){
+        try {
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(fileMusique);
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void stopMusique(){
+        clip.stop();
+    }
+
+    public void startMusique(){
+        clip.loop(70);
+    }
 
     /**
      * place les mines dans le tableau d'une maniere aleatoire
