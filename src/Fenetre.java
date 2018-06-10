@@ -56,6 +56,7 @@ public class Fenetre extends JFrame {
     private JMenu JMMOptions;
     private JMenuItem JMINouvellePartie;
     private JMenuItem JMIRetourMenuPrincipal;
+    private JMenuItem JMIMenuOptions ;
 
     public Fenetre(Model model) {
         this.model = model;
@@ -159,6 +160,9 @@ public class Fenetre extends JFrame {
     public JMenuItem getJMIRetourMenuPrincipal() {
         return JMIRetourMenuPrincipal;
     }
+    public JMenuItem getJMIMenuOptions() {
+        return JMIMenuOptions;
+    }
 
     public void setControlBouton(ActionListener actionListener){
         bJeu.addActionListener(actionListener);
@@ -207,6 +211,7 @@ public class Fenetre extends JFrame {
     public void setControlMenu(ActionListener al){
         JMIRetourMenuPrincipal.addActionListener(al);
         JMINouvellePartie.addActionListener(al);
+        JMIMenuOptions.addActionListener(al);
     }
 
     public void initAttribut(){
@@ -225,7 +230,7 @@ public class Fenetre extends JFrame {
         bRetourJouer = new JButton("Retour");
 
         nomDemineurOption = new JLabel("Option");
-        cbSon = new JCheckBox("Activer le son");
+        cbSon = new JCheckBox("Activer le son",true);
         bRetourOption = new JButton("Retour");
 
         nomDemineurPerso = new JLabel("Personnaliser");
@@ -258,6 +263,7 @@ public class Fenetre extends JFrame {
         JMMOptions = new JMenu("Options");
         JMINouvellePartie = new JMenuItem("Nouvelle Partie");
         JMIRetourMenuPrincipal = new JMenuItem("Menu Principal");
+        JMIMenuOptions = new JMenuItem("Option Jeu");
     }
 
     public void ajouterWidgetVuePrincipal(){
@@ -390,6 +396,7 @@ public class Fenetre extends JFrame {
         setContentPane(panGeneral);
 
         JMMOptions.add(JMIRetourMenuPrincipal);
+        JMMOptions.add(JMIMenuOptions);
         jMenuBar.add(JMMOptions);
         jMenuBar.add(JMINouvellePartie);
 
